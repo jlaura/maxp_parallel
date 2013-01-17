@@ -104,7 +104,9 @@ def assign_enclaves(column, z, neighbordict):
             new_wss = objective_function_vec(column, z)
             if new_wss < wss:
                 wss = new_wss
-    print column, wss
+    #Replace the p count with the wss, we can get at p whenever later with np.unique(p)
+    sharedSoln[:,column][0] = wss
+    
                 
     #print column, wss, len(enclaves[0])
         #Then move the enclave to the next neighbor's group and test variance
