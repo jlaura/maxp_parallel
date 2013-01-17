@@ -108,9 +108,9 @@ def initialize(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts
             regions = regions
             area2region = a2r
             p = len(regions)
-            print "Feasible soln found with %i regions by core %i on attempt %i" %(p, current._identity[0], attempts)
+            cid = current._identity[0]
             #Here we check the solution against the current solution space.
-            check_soln(regions, numP,cores)
+            check_soln(regions, numP,cores,w,z)
             attempts += 1
         else:
             if attempts == MAX_ATTEMPTS:
@@ -118,7 +118,29 @@ def initialize(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts
                 p = 0
             attempts += 1
 
-def check_soln(regions,numP,cores):
+def check_soln_z(regions,numP,cores,w,z): #check the solution for min z
+    '''This function queries the current IFS space to see if the currently computed soln is better than all other solns.'''
+    
+    def _regions_to_array(regions, newSoln):
+        regionid = 0
+        for region in regions:
+            for member in region:
+                newSoln[member] = regionid
+            regionid += 1
+        return newSoln
+            
+    #The overhead is going to get large if we calculate the number of unique values in a column every time a process tests to see if it bests the current solutions, so lets add an element to the array that stores p.  This will sit at index 0.  Alterantively, we could have another sharedmem array that is 1xcores to store the info.  Thoughts?
+    sharedSoln = np.frombuffer(cSoln.get_obj())
+    sharedSoln.shape = (numP,cores)
+    current_objvalue = objective_function(regions,w,z)
+    if current_objvalue < sharedSoln[0].min():#If any of the indices are less than p
+        with cSoln.get_lock(): #Lock the entire shared memory array while we alter it
+            column = np.argmin(sharedSoln[0]) #Get the index of the min value
+            sharedSoln[0][column] = current_objvalue
+            newSoln = sharedSoln[1:,column] #Get a slice of the array,skipping index 0 that is the p counter
+            _regions_to_array(regions, newSoln) #Iterate over the regions and assign their membership into the soln space
+ 
+def check_soln(regions,numP,cores,w,z): #check the solution for min z
     '''This function queries the current IFS space to see if the currently computed soln is better than all other solns.'''
     
     def _regions_to_array(regions, newSoln):
@@ -134,14 +156,11 @@ def check_soln(regions,numP,cores):
     sharedSoln.shape = (numP,cores)
     if len(regions) > sharedSoln[0].min():#If any of the indices are less than p
         with cSoln.get_lock(): #Lock the entire shared memory array while we alter it
-            #time.sleep(1)
             column = np.argmin(sharedSoln[0]) #Get the index of the min value
-            print column
             sharedSoln[0][column] = len(regions)
             newSoln = sharedSoln[1:,column] #Get a slice of the array,skipping index 0 that is the p counter
-            _regions_to_array(regions, newSoln) #Iterate over the regions and assign their membership into the soln space
+            _regions_to_array(regions, newSoln) #Iterate over the regions and assign their membership into the soln space 
 
-    
 def check_floor(region,floor_variable,w):
     selectionIDs = [w.id_order.index(i) for i in region]
     cv = sum(floor_variable[selectionIDs]) #TODO: FloorVariable needs to be defined.
@@ -149,10 +168,46 @@ def check_floor(region,floor_variable,w):
         return True
     else:
         return False 
+    
+def objective_function(regions,w,z,solution=None):
+    # solution is a list of lists of region ids [[1,7,2],[0,4,3],...] such
+    # that the first region has areas 1,7,2 the second region 0,4,3 and so
+    # on. solution does not have to be exhaustive
+    if not solution:
+        solution = regions
+    wss = 0
+    for region in solution:
+        selectionIDs = [w.id_order.index(i) for i in region]
+        m = z[selectionIDs, :]
+        var = m.var(axis=0)
+        wss += sum(np.transpose(var)) * len(region)
+    return wss
 
-'''This is a multi-phase algorithm.  Step 1: We need to generate IFS  We are going to attempt to generate 1 IFS for each core and add the to a shared memory space.  Each core has MAX_ATTEMPTS to compute an IFS.  At complettion we load n IFS into a shared memory space. '''
-
-
+def objective_function_vec(column,attribute_vector):
+    '''
+    This is an objection function checker designed to access the 
+    shared memory space.  It is suggested that this is faster than vectorization
+    because we do not have to initialize additional in memory temp arrays.
+    
+    Parameters
+    ----------
+    z        :ndarray
+              An array of attributes for each polygon
+              
+    Returns
+    -------
+    None     :-
+              This writes the objective function to the 0 index of the sharedmem
+              space, and overwrites sum(p) from the initialization phase.
+    '''
+    groups = sharedSoln[1:,column]
+    wss = 0
+    for group in np.unique(groups):
+        #print group, attribute[groups==group]
+        wss+= np.sum(np.var(attribute_vector[groups == group]))
+    #print wss
+    sharedSoln[0:,column][0] = wss
+    
 #Setup the test data:
 w = pysal.lat2W(10, 10) #A contiguity weights object
 z = np.random.random_sample((w.n, 2)) #Each local is assigned two attributes
@@ -174,6 +229,7 @@ numSoln[:] = 1
 '''The soln space is an array that holds node id as the index and membership as the attribute.'''
 
 neighbordict = dict(w.neighbors) #This is interesting - we can not pass a class instance through apply_async and need to conver to a dict.
+
 pool = mp.Pool(processes=cores) #Create a pool of workers, one for each core
 for job in range(cores): #Prep to assign each core a job
     pool.apply_async(initialize, args=(job,z,w,neighbordict,floor,p,numP, cores)) #Async apply each job
@@ -182,4 +238,24 @@ pool.join()
 
 sharedSoln = np.frombuffer(cSoln.get_obj())
 sharedSoln.shape = (numP, cores)
-print sharedSoln
+#print sharedSoln
+
+#We now have 4 IFS and we need to start to iterate over those swapping as we go.
+#Options are to track total iterations or total swaps.  Total swaps will balance
+# the total computation over the cores better than total iterations.  Let's stick
+# with iterations for now as that is the initial implementation.
+
+#Phase II
+#Step I - Compute the current value for each soln.
+jobs = []
+for column in range(sharedSoln.shape[1]):
+    p = mp.Process(target=objective_function_vec, args=(column,z[:,0]))
+    jobs.append(p)
+
+for job in jobs:
+    job.start()
+for job in jobs:
+    job.join()
+del jobs[:], p, job
+
+#print sharedSoln
