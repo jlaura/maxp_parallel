@@ -15,13 +15,9 @@ import ctypes
 #Testing
 import time
 
-def initialize(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts=100,threshold=0):
-    #Get the identity of the current process (core).
-    #current = mp.current_process()
-    #print "Current process ID: ", current._identity[0]
-    #This should be a low overhead for loop.
+def initialize(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts=100,threshold=0,suboptimal=None):
     
-    def iterate_to_p(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts, threshold):
+    def iterate_to_p(job,z,w,neighborsdict,floor,floor_variable,numP,cores, maxattempts, threshold,suboptimal):
         solving = True 
         attempts = 0
         while solving and attempts <= maxattempts:
@@ -67,25 +63,22 @@ def initialize(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts
                             enclaves.extend(region)
                             building_region = False
                             #check to see if any regions were made before going to enclave stage
-            if len(regions) >= threshold:
-                attempts += 1
-                yield regions
-            else:
-                attempts += 1
+            if threshold == 0:
+                if len(regions) >= threshold:
+                    attempts += 1
+                    yield regions
+                else:
+                    attempts += 1
+            else:#Here we standardize the answers without limit to number of iterations.  Will that work?
+                if len(suboptimal) == 0:
+                    break
+                if len(regions) == threshold:
+                    suboptimal.pop()
+                    yield regions              
 
-    for regions in iterate_to_p(job,z,w,neighborsdict,floor,floor_variable,numP,cores, 100, 0): 
-        p = len(regions)
-        #Here we check the solution against the current solution space.
+    for regions in iterate_to_p(job,z,w,neighborsdict,floor,floor_variable,numP,cores, maxattempts, threshold,suboptimal): 
         check_soln(regions, numP,cores,w,z)
-     
-
-    #Now we need to standardize the max number of regions between all IFS.
-    sharedSoln = np.frombuffer(cSoln.get_obj())
-    current_max_p = sharedSoln[0].max()
-    print "IFS with vaired p generated.  Attempting to standardize to p=%i" %current_max_p  
-    for regions in iterate_to_p(job,z,w,neighborsdict,floor,floor_variable,numP,cores,100,current_max_p):
-        p=len(regions)
-        check_soln(regions, numP, cores, w,z, unique=True)
+        
     
 def assign_enclaves(column, z, neighbordict):
     #Remember - the soln space stores membership by index.
@@ -106,42 +99,8 @@ def assign_enclaves(column, z, neighbordict):
                 wss = new_wss
     #Replace the p count with the wss, we can get at p whenever later with np.unique(p)
     sharedSoln[:,column][0] = wss
-    
-                
-    #print column, wss, len(enclaves[0])
-        #Then move the enclave to the next neighbor's group and test variance
-        #If the variance is lower in the second group, keep that group and test the next
-        #else, retain the first group and test the next
-            
-            #Now that I know the neighbors to the enclave I want to test each possability
-            # and assign to the one with the lowest variance. Punking out with a for loop
-            # for today
-            
-            
-            
-            #neighbors = [neighbor for neighbor in neighbors if neighbor not in enclaves]
-            #candidates = []
-            #for neighbor in neighbors:
-                #region = a2r[neighbor]
-                #if region not in candidates:
-                    #candidates.append(region)
-            #if candidates:
-                ## add enclave to random region
-                #regID = random.randint(0, len(candidates) - 1)
-                #rid = candidates[regID]
-                #regions[rid].append(enclave)
-                #a2r[enclave] = rid
-                ## structure to loop over enclaves until no more joining is possible
-                #encCount = len(enclaves)
-                #encAttempts = 0
-                #feasible = True
-            #else:
-                ## put back on que, no contiguous regions yet
-                #enclaves.append(enclave)
-                #encAttempts += 1
-                #feasible = False
  
-def check_soln(regions,numP,cores,w,z, unique=False): #check the solution for min z
+def check_soln(regions,numP,cores,w,z): #check the solution for min z
     '''This function queries the current IFS space to see if the currently computed soln is better than all other solns.'''
     
     def _regions_to_array(regions, newSoln):
@@ -153,29 +112,13 @@ def check_soln(regions,numP,cores,w,z, unique=False): #check the solution for mi
     
     sharedSoln = np.frombuffer(cSoln.get_obj())
     sharedSoln.shape = (numP,cores)
-    if unique == False:
-        if len(regions) >= sharedSoln[0].min(): #If any of the indices are less than p
-            cSoln.get_lock()#Lock the entire shared memory array while we alter it
-            column = np.argmin(sharedSoln[0]) #Get the index of the min value
-            sharedSoln[0][column] = len(regions)#Write p to index 0
-            newSoln = sharedSoln[1:,column] #Get a slice of the array,skipping index 0 that is the p counter
-            newSoln[:] = -1 #Empty the column to be written
-            _regions_to_array(regions, newSoln) #Iterate over the regions and assign their membership into the soln space 
-    else:
-        #Check that the soln is not identical to an existing soln
-        temp_array = np.zeros(numP-1)
-        temp_array[:] =-1
-        regionid = 0
-        for region in regions:
-            for member in region:
-                temp_array[member] = regionid
-            regionid += 1            
-        cSoln.get_lock()
-        for column in range(sharedSoln.shape[1]):
-            if not np.array_equal(temp_array, sharedSoln[1:,column]):
-                sharedSoln[1:,column] = temp_array
-                sharedSoln[0:,column][0] = len(regions)
-                break                
+    if len(regions) >= sharedSoln[0].min(): #If any of the indices are less than p
+        cSoln.get_lock()#Lock the entire shared memory array while we alter it
+        column = np.argmin(sharedSoln[0]) #Get the index of the min value
+        sharedSoln[0][column] = len(regions)#Write p to index 0
+        newSoln = sharedSoln[1:,column] #Get a slice of the array,skipping index 0 that is the p counter
+        newSoln[:] = -1 #Empty the column to be written
+        _regions_to_array(regions, newSoln) #Iterate over the regions and assign their membership into the soln space               
                 
 def check_floor(region,floor_variable,w):
     selectionIDs = [w.id_order.index(i) for i in region]
@@ -209,7 +152,15 @@ def objective_function_vec(column,attribute_vector):
         wss+= np.sum(np.var(attribute_vector[groups == group]))
     return wss
     #sharedSoln[0:,column][0] = wss
-    
+
+def standardize(current_p):
+    feasible = []
+    for column in sharedSoln.T:
+        if column[0] == current_p:
+            feasible.append(column)
+    print feasible
+        
+                                      
 #Setup the test data:
 w = pysal.lat2W(10, 10)
 z = np.random.random_sample((w.n, 2))
@@ -247,7 +198,28 @@ if sharedSoln.all() == -1:
     sys.exit(0)
 #print sharedSoln
 
-#Phase Ib - Assign enclaves
+#Phase Ib - Standardize the values.
+current_max_p = sharedSoln[0].max()
+suboptimal = np.where(sharedSoln[0] < current_max_p)[0]
+if suboptimal.size == 0:
+    print "Solutions standardized, assigning enclaves"
+else:
+    manager = mp.Manager() #Create a manager to manage the coutdown
+    suboptimal_countdown = manager.list(suboptimal)
+    print "IFS with vaired p generated.  Standardizing to p=%i." %current_max_p
+    jobs = []
+    for core in range(0,cores):
+        proc = mp.Process(target=initialize, args=(core,z,w,neighbordict,floor,floor_variable,numP,cores, 1, current_max_p,suboptimal_countdown))
+        
+        jobs.append(proc)
+    for job in jobs:
+        job.start()
+    for job in jobs:
+        job.join()
+    del jobs[:], proc, job        
+#print sharedSoln
+    
+#Phase Ic - Assign enclaves
 jobs = []
 for column_num in range(sharedSoln.shape[1]):
     proc = mp.Process(target=assign_enclaves, args=(column_num, z[:,0], neighbordict))
@@ -257,23 +229,14 @@ for job in jobs:
 for job in jobs:
     job.join()
 del jobs[:], proc, job
-print sharedSoln
-
-#Phase II
-#Step I - Compute the current value for each soln.
-#jobs = []
-#for column in range(sharedSoln.shape[1]):
-    #p = mp.Process(target=objective_function_vec, args=(column,z[:,0]))
-    #jobs.append(p)
-
-#for job in jobs:
-    #job.start()
-#for job in jobs:
-    #job.join()
-#del jobs[:], p, job
 #print sharedSoln
 
-#Step II - Initiate Swapping
-#Each core is going to get one answer and start to iterate.
-
-
+#Phase Id - Set 50% soln to best current soln to favor current best at initialization of Phase II.
+num_top_half = (cores // 2) - 1 #Get the whole number of cores 
+current_best = np.argmin(sharedSoln[0]) ; current_best_value = np.min(sharedSoln[0])
+print current_best, current_best_value
+for soln in range(num_top_half):
+    replace = np.argmax(sharedSoln[0])
+    sharedSoln[:,replace] = sharedSoln[:,current_best]
+    
+print sharedSoln
