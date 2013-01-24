@@ -20,11 +20,6 @@ def _init_shared(updateflag_):
     global sharedupdate
     sharedupdate = updateflag_
 
- 
-def _init_shared_localSoln(localSoln_):
-    global sharedlocalSoln
-    sharedlocalSoln = localSoln_ 
-    
 def assign_enclaves(column, z, neighbordict):
     '''
     This function assigned enclaves by sequentially adding each enclave to all
@@ -32,6 +27,7 @@ def assign_enclaves(column, z, neighbordict):
      is import as we do not check for relationships between different enclave memberships, 
      just the variance of the current enclave.
     '''
+    ##TODO - I have a logic error in here, it occurrs once in 100 runs....I miss some enclaves and return polgyons with region -1...
     enclaves = np.where(sharedSoln[1:,column] == -1)#Returns a tuple of unassigned enclaves
     for enclave in enclaves[0]:#Iterate over the enclaves
         neighbors = neighbordict[enclave]
@@ -295,12 +291,13 @@ for job in jobs:
 for job in jobs:
     job.join()
 del jobs[:], proc, job
-#print sharedSoln
 
 #Phase Id - Set 50% soln to best current soln
 set_half_to_best(cores)
 
-def tabu_search(core, z, neighbordict,numP,w,floor_variable, maxfailures=5):
+print sharedSoln[0]
+
+def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=5):
     
     def _tabulength(numP):
         '''Talliard(1990)'''
@@ -308,6 +305,15 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable, maxfailures=5):
         smax = (numP-1) * 1.1
         tabu_length = 6 + (randint(0,int(smax - smin)))
         return int(tabu_length)
+
+    def _tabu_check(tabu_list, neighbor, region, old_membership):
+        if tabu_list:#If we have a deque with contents
+            for tabu_region in(tabu_list):
+                if neighbor == tabu_region[0]:
+                    #print neighbor, tabu_region[0]
+                    if region == tabu_region[1] and old_membership == tabu_region[2]:
+                        return False    
+    
     
     pid = mp.current_process()._identity[0]
     failures = 0 #The total iteration counter
@@ -352,21 +358,26 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable, maxfailures=5):
             for neighbor in neighbors:
                 neighborSoln = np.copy(workingSoln[:]) #Pull a copy of the local working version
                 old_membership = neighborSoln[neighbor]#Track where we started to check_floor
+                
+                tabu_move_check =_tabu_check(tabu_list, neighbor, region, old_membership)
+                if tabu_move_check is not None:
+                    break
+                
                 neighborSoln[neighbor] = region #Move the neighbor into the new region in the copy
+                
+                #Here we start to check the swap and see if it is better
                 swap_var = objective_function_vec(neighborSoln[1:],z)#Variance of the new swap
                 if swap_var <= local_best_variance:
-                    #print pid, swap_var, local_best_variance
                     block = np.where(workingSoln[1:] == neighbor)[0]#A list of the members in a region.
                     block=block.tolist() #For current contiguity check
                     if check_contiguity(neighbordict, block, neighbor):#Check contiguity
                         if check_floor(np.where(neighborSoln[1:,]==region)[0], floor_variable, w) and check_floor(np.where(neighborSoln[1:,]==old_membership)[0],floor_variable,w):#What about the floor of the region loosing the member in the original code?
-                            print "Swap made on core %i.  Objective function improved from %f to %f." %(pid, swap_var, local_best_variance)
+                            #print "Swap made on core %i.  Objective function improved from %f to %f." %(pid, swap_var, local_best_variance)
                             local_best_variance = swap_var#Set the new local best to the swap. We have made a swap that betters the objective function.
                             neighborSoln[0] = swap_var
                             workingSoln[:] = neighborSoln[:]
-                            
-                            ##TODO - Add the move to the tabu list
                             swap_flag = True #We made a swap
+                            tabu_list.appendleft((neighbor,old_membership,region))#tuple(polygon_id, oldgroup,newgroup)
                         else:
                             del neighborSoln
                             #print "Swap failed due to floor_check."
@@ -375,29 +386,38 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable, maxfailures=5):
                         #print "Swap failed due to contiguity."
                 
         if swap_flag == False:
+            #print "Failed to make any swap, incrementing the fail counter."
             failures += 1
-            print "Incrementing failures"
-            
-        print "Failure: %i / pid: %i" %(failures, pid) 
-        #Then we need to lock the column this core is working on and make an update.
         
-        
-        
-    print workingSoln, len(np.unique(workingSoln[1:]))
-#Phase II - Initialize a sharedmemory swap space
-clocalSoln = Array(ctypes.c_double, numP*cores)
-localSoln = np.frombuffer(clocalSoln.get_obj())
-localSoln.shape = (numP,cores)
-localSoln[:] = sharedSoln
-_init_shared_localSoln(localSoln)
+    #print workingSoln, len(np.unique(workingSoln[1:]))    
+    
+    ##We have 'failed out' now, so we need to check our answer
+    ###TODO Do we add a diversification operator? 
+    
+    with lockflag:
+        sharedupdate[0][core_soln_column] = 0 #Set the update flag to false
+        #print "Locking update flag to set to false"
+    with lockSoln:
+        sharedSoln[:,core_soln_column]#Lock the column of the shared soln we are using.
+        if workingSoln[0] < sharedSoln[:,core_soln_column][0]:
+            sharedSoln[:,core_soln_column] = workingSoln
+            #print "Better soln loaded into sharedSoln: %f." %workingSoln[0]
+            sharedupdate[0][core_soln_column] = 1 #Set the update flag to true
+    
+    
 
 #Phase II - Swapping
 print "Initiating Phase II: Tabu Search"
+
+#We  need an iterator here to count max iterations or total time to work or something.  We track failures internal to each process.
 for core in range(cores):
-    proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor_variable))
+    proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor_variable, lockSoln, lockflag))
     jobs.append(proc)
 for job in jobs:
     job.start()
 for job in jobs:
     job.join()
 del jobs[:], proc, job
+
+print sharedSoln[0]
+print sharedupdate[0]
