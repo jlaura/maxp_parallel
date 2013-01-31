@@ -13,8 +13,11 @@ import multiprocessing as mp
 from multiprocessing.sharedctypes import Array
 import ctypes
 from collections import deque
-from random import randint
+from random import randint, uniform
 from numpy.random import RandomState
+
+#Testing imports
+import time
 
 def _init_shared(updateflag_):
     global sharedupdate
@@ -205,7 +208,14 @@ def set_half_to_best(cores):
     for soln in range(num_top_half):
         replace = np.argmax(sharedSoln[0])
         sharedSoln[:,replace] = sharedSoln[:,current_best]
-        
+
+def tabulength(numP):
+    '''Talliard(1990)'''
+    smin = (numP-1) * 0.9
+    smax = (numP-1) * 1.1
+    tabu_length = 6 + (randint(0,int(smax - smin)))
+    return int(tabu_length)        
+
 '''Test Data Generation a la PySAL tests.'''                                      
 #Setup the test data:
 w = pysal.lat2W(10, 10)
@@ -226,11 +236,13 @@ numSoln.shape = (numP,cores)
 numSoln[:] = -1
 #Shared memory update flag space
 lockflag = mp.Lock()
-c_updateflag = Array(ctypes.c_int, 2*(cores*2), lock=lockflag) #Do I need different locks? #Why double cores again?
+c_updateflag = Array(ctypes.c_int, 3*(cores*2), lock=lockflag) #Do I need different locks? #Why double cores again?
 updateflag = np.frombuffer(c_updateflag.get_obj())
-updateflag.shape=(2,cores)
-updateflag[0] = 0 #False - whether the answer was updated
+updateflag.shape=(3,cores)
+updateflag[0] = 1 #True for first iteration. - whether the answer was updated
 updateflag[1] = 0 #Iteration counter per core.
+for index in range(len(updateflag[2])): #Define the tabu list length for each chord.
+    updateflag[2][index] = tabulength(numP)
 _init_shared(updateflag)
 
 neighbordict = dict(w.neighbors)#Class instances are not pickable.
@@ -297,15 +309,13 @@ set_half_to_best(cores)
 
 print sharedSoln[0]
 
-def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=5):
+def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=5,maxiterations=5):
+    ##Pseudo constants
+    pid = mp.current_process()._identity[0]
+    tabu_list = deque(maxlen=sharedupdate[2][core])#What is this core's tabu list length? 
+        
+    maxfailures += int(maxfailures*uniform(-1.1, 1.2))#James et. al 2007
     
-    def _tabulength(numP):
-        '''Talliard(1990)'''
-        smin = (numP-1) * 0.9
-        smax = (numP-1) * 1.1
-        tabu_length = 6 + (randint(0,int(smax - smin)))
-        return int(tabu_length)
-
     def _tabu_check(tabu_list, neighbor, region, old_membership):
         if tabu_list:#If we have a deque with contents
             for tabu_region in(tabu_list):
@@ -314,98 +324,114 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
                     if region == tabu_region[1] and old_membership == tabu_region[2]:
                         return False    
     
+    ##This shows that we are operating asynchronously.   
+    #if core ==2:
+        #time.sleep(5)
     
-    pid = mp.current_process()._identity[0]
-    failures = 0 #The total iteration counter
-    tabu_list = deque(maxlen=_tabulength(numP)) 
-    core_soln_column = core #Another counter to iterate around the search space
-    
-    #What are the current best solutions local to this core?
-    local_best_variance = sharedSoln[:,core_soln_column][0]
-    workingSoln = np.copy(sharedSoln[:,core_soln_column])    
-    
-    while failures <= maxfailures:#How many total iterations can the core make
-        ##These lines prove that we are still maintaining the floor properly
-        #groups = np.unique(workingSoln[1:])
-        #for group in groups:
-            #print group, np.where(workingSoln[:]==group)[0]        
+    while sharedupdate[1][core] < maxiterations:
+        core_soln_column = (core + sharedupdate[1][core])%len(sharedupdate[1]) #This iterates the cores around the search space.
         
-        #Select a random starting point in the search space.
-        nr = np.unique(workingSoln[1:]) #This is 0 based, ie. region 0 - region 31
-        regionIDs = nr
-        changed_regions = np.ones(len(nr))
-        randstate = RandomState(pid) #To 'unsync' the cores we need to instantiate a random class with a unique seed.
-        randstate.shuffle(regionIDs) #shuffle the regions so we start with a random region
-        changed_regions[:] = 0
-        swap_flag = False #Flag to stop looping prior to max iterations if we are not improving.
+        #Check for diversification here and diversify if necessary...
+        if sharedupdate[0][core_soln_column] == False:
+            #diversify_soln(core_soln_column) #Li, et. al (in press - P-Compact_Regions)
+            pass
+        print "ProcessID %i is processing soln column %i in iteration %i."%(pid, core_soln_column,sharedupdate[1][core])    
+        failures = 0 #The total iteration counter
+        #What are the current best solutions local to this core?
+        local_best_variance = sharedSoln[:,core_soln_column][0]
+        workingSoln = np.copy(sharedSoln[:,core_soln_column])    
         
-        ##I would like to implement an if statement here.  If the changed_regions flag is set to true, keep going in that region, if max_failures is hit there, then iterate to the next region.
-        
-        #Iterate through the regions, checking potential swaps
-        for region in regionIDs:
-            members = np.where(workingSoln == region)[0] #get the members of the region
-            #print region, members
-            #Get the neighbors to the members.  Grab only those that could change.
-            neighbors = []
-            for member in members:
-                candidates = neighbordict[member-1]#neighbordict is 0 based, member is 1 based
-                candidates = [candidate for candidate in candidates if candidate not in members]
-                candidates = [candidate for candidate in candidates if candidate not in neighbors]
-                neighbors.extend(candidates)
-            candidates = []
+        while failures <= maxfailures:#How many total iterations can the core make
+      
+            #Select a random starting point in the search space.
+            nr = np.unique(workingSoln[1:]) #This is 0 based, ie. region 0 - region 31
+            regionIDs = nr
+            changed_regions = np.ones(len(nr))
+            randstate = RandomState(pid) #To 'unsync' the cores we need to instantiate a random class with a unique seed.
+            randstate.shuffle(regionIDs) #shuffle the regions so we start with a random region
+            changed_regions[:] = 0
+            swap_flag = False #Flag to stop looping prior to max iterations if we are not improving.
             
-            #Iterate through the neighbors
-            for neighbor in neighbors:
-                neighborSoln = np.copy(workingSoln[:]) #Pull a copy of the local working version
-                old_membership = neighborSoln[neighbor]#Track where we started to check_floor
+            #Iterate through the regions, checking potential swaps
+            for region in regionIDs:
+                members = np.where(workingSoln == region)[0] #get the members of the region
+                #print region, members
+                #Get the neighbors to the members.  Grab only those that could change.
+                neighbors = []
+                for member in members:
+                    candidates = neighbordict[member-1]#neighbordict is 0 based, member is 1 based
+                    candidates = [candidate for candidate in candidates if candidate not in members]
+                    candidates = [candidate for candidate in candidates if candidate not in neighbors]
+                    neighbors.extend(candidates)
+                candidates = []
                 
-                tabu_move_check =_tabu_check(tabu_list, neighbor, region, old_membership)
-                if tabu_move_check is not None:
-                    break
-                
-                neighborSoln[neighbor] = region #Move the neighbor into the new region in the copy
-                
-                #Here we start to check the swap and see if it is better
-                swap_var = objective_function_vec(neighborSoln[1:],z)#Variance of the new swap
-                if swap_var <= local_best_variance:
-                    block = np.where(workingSoln[1:] == neighbor)[0]#A list of the members in a region.
-                    block=block.tolist() #For current contiguity check
-                    if check_contiguity(neighbordict, block, neighbor):#Check contiguity
-                        if check_floor(np.where(neighborSoln[1:,]==region)[0], floor_variable, w) and check_floor(np.where(neighborSoln[1:,]==old_membership)[0],floor_variable,w):#What about the floor of the region loosing the member in the original code?
-                            #print "Swap made on core %i.  Objective function improved from %f to %f." %(pid, swap_var, local_best_variance)
-                            local_best_variance = swap_var#Set the new local best to the swap. We have made a swap that betters the objective function.
-                            neighborSoln[0] = swap_var
-                            workingSoln[:] = neighborSoln[:]
-                            swap_flag = True #We made a swap
-                            tabu_list.appendleft((neighbor,old_membership,region))#tuple(polygon_id, oldgroup,newgroup)
+                #Iterate through the neighbors
+                for neighbor in neighbors:
+                    neighborSoln = np.copy(workingSoln[:]) #Pull a copy of the local working version
+                    old_membership = neighborSoln[neighbor]#Track where we started to check_floor
+                    
+                    tabu_move_check =_tabu_check(tabu_list, neighbor, region, old_membership)
+                    if tabu_move_check is not None:
+                        break
+                    
+                    neighborSoln[neighbor] = region #Move the neighbor into the new region in the copy
+                    
+                    #Here we start to check the swap and see if it is better
+                    swap_var = objective_function_vec(neighborSoln[1:],z)#Variance of the new swap
+                    if swap_var <= local_best_variance:
+                        block = np.where(workingSoln[1:] == neighbor)[0]#A list of the members in a region.
+                        block=block.tolist() #For current contiguity check
+                        if check_contiguity(neighbordict, block, neighbor):#Check contiguity
+                            if check_floor(np.where(neighborSoln[1:,]==region)[0], floor_variable, w) and check_floor(np.where(neighborSoln[1:,]==old_membership)[0],floor_variable,w):#What about the floor of the region loosing the member in the original code?
+                                #print "Swap made on core %i.  Objective function improved from %f to %f." %(pid, swap_var, local_best_variance)
+                                local_best_variance = swap_var#Set the new local best to the swap. We have made a swap that betters the objective function.
+                                neighborSoln[0] = swap_var
+                                workingSoln[:] = neighborSoln[:]
+                                swap_flag = True #We made a swap
+                                tabu_list.appendleft((neighbor,old_membership,region))#tuple(polygon_id, oldgroup,newgroup)
+                            else:
+                                del neighborSoln
+                                #print "Swap failed due to floor_check."
                         else:
                             del neighborSoln
-                            #print "Swap failed due to floor_check."
-                    else:
-                        del neighborSoln
-                        #print "Swap failed due to contiguity."
-                
-        if swap_flag == False:
-            #print "Failed to make any swap, incrementing the fail counter."
-            failures += 1
+                            #print "Swap failed due to contiguity."
+                    
+            if swap_flag == False:
+                #print "Failed to make any swap, incrementing the fail counter."
+                failures += 1
+            
+        #print workingSoln, len(np.unique(workingSoln[1:]))    
         
-    #print workingSoln, len(np.unique(workingSoln[1:]))    
+        with lockflag:
+            sharedupdate[0][core_soln_column] = 0 #Set the update flag to false
+            #print "Locking update flag to set to false"
+        
+        with lockSoln:#The lock is released at the end of the with statement
+            sharedSoln[:,core_soln_column]#Lock the column of the shared soln we are using.
+            if workingSoln[0] < sharedSoln[:,core_soln_column][0]:
+                sharedSoln[:,core_soln_column]
+                sharedSoln[:,core_soln_column] = workingSoln
+                #print "Better soln loaded into sharedSoln: %f." %(workingSoln[0])
+                sharedupdate[0][core_soln_column] = 1 #Set the update flag to true
+                print workingSoln[0], sharedSoln[0]
+                if workingSoln[0] <= sharedSoln[0].any():
+                    print "If triggered"
+                    set_half_to_best(len(sharedSoln[0]))
+                    print "Setting half to best."
+                    print workingSoln[0], sharedSoln[0]
+        
+        #if workingSoln[0] < sharedSoln[0].any():
+            #print "Soln is current global best, propogatting to 1/2 the solution space."
+            #with lockSoln:
+                #set_half_to_best(len(sharedSoln[0]))
+            #print sharedSoln[0]
+        
+        #Increment the core iteration counter    
+        sharedupdate[1][core] += 1
     
-    ##We have 'failed out' now, so we need to check our answer
-    ###TODO Do we add a diversification operator? 
-    
-    with lockflag:
-        sharedupdate[0][core_soln_column] = 0 #Set the update flag to false
-        #print "Locking update flag to set to false"
-    with lockSoln:
-        sharedSoln[:,core_soln_column]#Lock the column of the shared soln we are using.
-        if workingSoln[0] < sharedSoln[:,core_soln_column][0]:
-            sharedSoln[:,core_soln_column] = workingSoln
-            #print "Better soln loaded into sharedSoln: %f." %workingSoln[0]
-            sharedupdate[0][core_soln_column] = 1 #Set the update flag to true
-    
-    
-
+        #print "Process %i completed iteration %i/%i." %(pid, sharedupdate[1][core], maxiterations)
+        #print sharedupdate[0]
+        
 #Phase II - Swapping
 print "Initiating Phase II: Tabu Search"
 
@@ -419,5 +445,7 @@ for job in jobs:
     job.join()
 del jobs[:], proc, job
 
-print sharedSoln[0]
-print sharedupdate[0]
+print "New Solutions: ", sharedSoln[0]
+print "Update Flags: ", sharedupdate[0]
+print "Iteration Counter: ",sharedupdate[1]
+print "Tabu length: ",sharedupdate[2]
