@@ -32,6 +32,7 @@ def assign_enclaves(column, z, neighbordict):
     '''
     ##TODO - I have a logic error in here, it occurrs once in 100 runs....I miss some enclaves and return polgyons with region -1...
     enclaves = np.where(sharedSoln[1:,column] == -1)#Returns a tuple of unassigned enclaves
+    workingenclaves = np.copy(sharedSoln[1:,column])
     for enclave in enclaves[0]:#Iterate over the enclaves
         neighbors = neighbordict[enclave]
         #Iterate over the neighbors to the enclaves
@@ -42,10 +43,11 @@ def assign_enclaves(column, z, neighbordict):
             if group == -1: #Because we could assign an enclave to another enclave, fail the floor test that we do not perform again, and have a low variance...pain to debug this guy!
                 break
             #Then add the enclave to that neighbor and test the variance
-            sharedSoln[1:,column][enclave] = group
+            workingenclaves[enclave] = group
             new_wss = objective_function_vec(column, z)
             if new_wss < wss:
                 wss = new_wss
+                sharedSoln[:,column][enclave] = group #If this is the current best, write it to the sharedmem space
     #Replace the p count with the wss, we can get at p whenever later with np.unique(p)
     sharedSoln[:,column][0] = wss
  
@@ -203,8 +205,10 @@ def set_half_to_best(cores):
     This function sets 1/2 of all solutions to the current best solution to 
      foster intensification. (James et al. 2009)
     '''
-    num_top_half = (cores // 2) - 1 #Get the whole number of cores 
-    current_best = np.argmin(sharedSoln[0]) ; current_best_value = np.min(sharedSoln[0])
+    current_best = np.argmin(sharedSoln[0])
+    current_best_value = np.min(sharedSoln[0])
+    num_top_half = (cores // 2)
+    num_top_half -= len(np.where(sharedSoln[0] == current_best_value)[0])
     for soln in range(num_top_half):
         replace = np.argmax(sharedSoln[0])
         sharedSoln[:,replace] = sharedSoln[:,current_best]
@@ -263,7 +267,7 @@ del jobs[:], proc, job
 sharedSoln = np.frombuffer(cSoln.get_obj())
 sharedSoln.shape = (numP, cores)
 if sharedSoln.all() == -1: 
-    print "No initial feasible solutions found. Perhaps increase the number of iterations?"
+    #print "No initial feasible solutions found. Perhaps increase the number of iterations?"
     sys.exit(0)
 #print sharedSoln
 
@@ -278,7 +282,7 @@ else:
     print "IFS with vaired p generated.  Standardizing to p=%i." %current_max_p
     jobs = []
     for core in range(0,cores):
-        proc = mp.Process(target=initialize, args=(core,z,w,neighbordict,floor,floor_variable,numP,cores, 10**6, current_max_p,suboptimal_countdown))
+        proc = mp.Process(target=initialize, args=(core,z,w,neighbordict,floor,floor_variable,numP,cores, 100, current_max_p,suboptimal_countdown))
         
         jobs.append(proc)
     for job in jobs:
@@ -309,9 +313,9 @@ del jobs[:], proc, job
 #Phase Id - Set 50% soln to best current soln
 set_half_to_best(cores)
 
-print sharedSoln[0]
+#print sharedSoln[0]
 
-def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=5,maxiterations=5):
+def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=15,maxiterations=10):
     ##Pseudo constants
     pid = mp.current_process()._identity[0]
     tabu_list = deque(maxlen=sharedupdate[2][core])#What is this core's tabu list length? 
@@ -335,7 +339,7 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
         
         Rationale: This is a randomized Greedy swap (GRASP), where we store the best n permutations and then randomly select the one we will use.  Originally in Li et. al (in press).  We need to test different values of n to see what the impact is.
         '''
-        print "Diversifying: ", sharedSoln[0]
+        #print "Diversifying: ", sharedSoln[0]
 
         #Initialize a local swap space to store n best diversified soln - these do not need to be better 
         div_soln_space = np.ndarray(sharedSoln.shape)
@@ -384,10 +388,17 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
         
         #Write one of the neighbor perturbations to the shared memory space to work on.
         valid = np.where(div_soln_space[0] != np.inf)[0]
-        selection = randint(0,len(valid)-1)
-        with lockSoln:
-            sharedSoln[:,core_soln_column] = div_soln_space[:,selection]
-        print "Diversified to:", sharedSoln[0]
+        try:
+            selection = randint(0,len(valid)-1)
+            with lockSoln:
+                sharedSoln[:,core_soln_column] = div_soln_space[:,selection]
+                print "Diversified to:", sharedSoln[0]
+        except:
+            print div_soln_space[0]
+            print "Attempt to diversify failed."
+            
+
+        
     ##This shows that we are operating asynchronously.   
     #if core ==2:
         #time.sleep(5)
@@ -479,7 +490,7 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
                 sharedupdate[0][core_soln_column] = 1 #Set the update flag to true
                 if not workingSoln[0] < sharedSoln[0].any():
                     set_half_to_best(len(sharedSoln[0]))
-
+                    #print "Setting half the soln to new global best. ", sharedSoln[0]
         #Increment the core iteration counter    
         sharedupdate[1][core] += 1
     
@@ -487,7 +498,7 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
         #print sharedupdate[0]
         
 #Phase II - Swapping
-print "Initiating Phase II: Tabu Search"
+#print "Initiating Phase II: Tabu Search"
 
 #We  need an iterator here to count max iterations or total time to work or something.  We track failures internal to each process.
 for core in range(cores):
