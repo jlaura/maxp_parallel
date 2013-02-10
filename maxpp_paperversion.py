@@ -30,7 +30,6 @@ def assign_enclaves(column, z, neighbordict):
      is import as we do not check for relationships between different enclave memberships, 
      just the variance of the current enclave.
     '''
-    ##TODO - I have a logic error in here, it occurrs once in 100 runs....I miss some enclaves and return polgyons with region -1...
     enclaves = np.where(sharedSoln[1:,column] == -1)#Returns a tuple of unassigned enclaves
     workingenclaves = np.copy(sharedSoln[1:,column])
     for enclave in enclaves[0]:#Iterate over the enclaves

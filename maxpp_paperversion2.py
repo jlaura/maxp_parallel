@@ -22,6 +22,10 @@ import time
 def _init_shared(updateflag_):
     global sharedupdate
     sharedupdate = updateflag_
+    
+def _init_var(varSoln_):
+    global sharedVar
+    sharedVar = varSoln_
 
 def assign_enclaves(column, z, neighbordict):
     '''
@@ -288,7 +292,7 @@ if suboptimal.size == 0:
 else:
     manager = mp.Manager() #Create a manager to manage the coutdown
     suboptimal_countdown = manager.list(suboptimal)
-    print "IFS with vaired p generated.  Standardizing to p=%i." %current_max_p
+    #print "IFS with vaired p generated.  Standardizing to p=%i." %current_max_p
     jobs = []
     for core in range(0,cores):
         proc = mp.Process(target=initialize, args=(core,z,w,neighbordict,floor,floor_variable,numP,cores, numP * 100, current_max_p,suboptimal_countdown))
@@ -323,16 +327,22 @@ del jobs[:], proc, job
 set_half_to_best(cores)
 
 def compute_local_variance(column_num, z,p):
-    soln = sharedSoln[1:,column_num]
-    print sharedSoln[1:,column_num]
-    #print p
-    
-    
-
+    groups = sharedSoln[1:,column_num]   
+    for group in np.unique(groups):
+        sharedVar[1:,column_num][group] = np.var(z[groups == group])
+    #Sum the local variance to compute global variance
+    sharedVar[:,column_num][0] = np.sum(sharedVar[1:,column_num])
+    print sharedVar[:,column_num]
 
 #Phase Ie - Compute a shared memory space to store variance per region - this will form the basis of the addative variance checking mechanism
-jobs = []
 p = np.unique(sharedSoln[1:,0])
+#We have to initialize space to store the solution.
+lockVar = mp.Lock()
+varSoln = Array(ctypes.c_double, (len(p)+1)*cores, lock=lockVar)
+varSoln = np.frombuffer(varSoln.get_obj()).astype(np.float)
+varSoln.shape = ((len(p)+1),cores)
+_init_var(varSoln)
+jobs = []
 for column_num in range(sharedSoln.shape[1]):
     proc = mp.Process(target=compute_local_variance, args=(column_num, z,p))
     jobs.append(proc)
@@ -342,10 +352,8 @@ for job in jobs:
     job.join()
 del jobs[:], proc, job
 
-exit()
-
 #print sharedSoln[0]
-
+exit()
 def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=15,maxiterations=10):
     ##Pseudo constants
     pid = mp.current_process()._identity[0]

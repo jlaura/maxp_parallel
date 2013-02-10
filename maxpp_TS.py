@@ -1,3 +1,9 @@
+'''
+1. Fix enclave assignment
+2. Time this - compare the timing and soln quality vs. the existing pysal version.
+'''
+
+
 #MaxP Regions Multi
 
 import pysal
@@ -31,9 +37,17 @@ def assign_enclaves(column, z, neighbordict):
      is import as we do not check for relationships between different enclave memberships, 
      just the variance of the current enclave.
     '''
-    ##TODO - I have a logic error in here, it occurrs once in 100 runs....I miss some enclaves and return polgyons with region -1...
-    enclaves = np.where(sharedSoln[1:,column] == -1)#Returns a tuple of unassigned enclaves
-    for enclave in enclaves[0]:#Iterate over the enclaves
+    def _objective_function_enc(workingenclaves,attribute_vector):
+        groups = workingenclaves
+        wss = 0
+        for group in np.unique(groups):
+            #print group, attribute[groups==group]
+            wss+= np.sum(np.var(attribute_vector[groups == group]))
+        return wss  
+    
+    enclaves = np.where(sharedSoln[1:,column] == -1)[0]#Returns the indices of unassigned vertices
+    workingenclaves = np.copy(sharedSoln[1:,column])
+    for enclave in enclaves:#Iterate over the enclaves
         neighbors = neighbordict[enclave]
         #Iterate over the neighbors to the enclaves
         wss=float('inf')
@@ -41,13 +55,15 @@ def assign_enclaves(column, z, neighbordict):
             #Now I need to know what groups the neighbor is in.
             group = sharedSoln[1:,column][neighbor]
             if group == -1: #Because we could assign an enclave to another enclave, fail the floor test that we do not perform again, and have a low variance...pain to debug this guy!
-                break
-            #Then add the enclave to that neighbor and test the variance
-            sharedSoln[1:,column][enclave] = group
-            new_wss = objective_function_vec(column, z)
-            if new_wss < wss:
-                wss = new_wss
-    #Replace the p count with the wss, we can get at p whenever later with np.unique(p)
+                pass
+            else:
+                #Then add the enclave to that neighbor and test the variance
+                workingenclaves[enclave] = group
+                new_wss = _objective_function_enc(workingenclaves, z)
+                if new_wss < wss:
+                    wss = new_wss
+                    
+                    sharedSoln[1:,column][enclave] = workingenclaves[enclave]
     sharedSoln[:,column][0] = wss
  
 def check_soln(regions,numP,cores,w,z): #check the solution for min z
@@ -223,6 +239,7 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
     ##Pseudo constants
     pid = mp.current_process()._identity[0]
     tabu_list = deque(maxlen=sharedupdate[2][core])#What is this core's tabu list length? 
+    maxiterations *= cores #Test synchronize cores to exit at the same time.
         
     maxfailures += int(maxfailures*uniform(-1.1, 1.2))#James et. al 2007
     
@@ -296,11 +313,10 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
             selection = randint(0,len(valid)-1)
             with lockSoln:
                 sharedSoln[:,core_soln_column] = div_soln_space[:,selection]
-                #print "Diversified to:", sharedSoln[0]
+                print "Diversified to:", sharedSoln[0]
         except:
-            pass
-            #print div_soln_space[0]
-            #print "Attempt to diversify failed."
+            print div_soln_space[0]
+            print "Attempt to diversify failed."
             
 
         
@@ -308,7 +324,7 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
     #if core ==2:
         #time.sleep(5)
     
-    while sharedupdate[1][core] < maxiterations:
+    while sum(sharedupdate[1]) < maxiterations:
         core_soln_column = (core + sharedupdate[1][core])%len(sharedupdate[1]) #This iterates the cores around the search space.
         
         #Check for diversification here and diversify if necessary...
@@ -406,15 +422,16 @@ soln32 = []
 soln31 = []
 soln30 = []
 soln33 = []
+output = open('250_iterations.txt', 'a')
 
-for repeat in range(100):
-    
+for repeat in range(250):
+    time1 = time.time()
     '''Test Data Generation a la PySAL tests.'''                                      
     #Setup the test data:
     w = pysal.lat2W(10, 10)
     random_init = RandomState(123456789)
     z = random_init.random_sample((w.n, 2))
-    #print z.max(), z.min(), z.std() #Comment out to verify that the 'random' seed is identical over tests
+    print z.max(), z.min(), z.std() #Comment out to verify that the 'random' seed is identical over tests
     p = np.ones((w.n, 1), float) 
     floor_variable = p
     floor = 3
@@ -518,41 +535,30 @@ for repeat in range(100):
         job.join()
     del jobs[:], proc, job
     
+    time2=time.time()
+    
+    runtime = time2-time1    
+    
     best_index = np.argmin(sharedSoln[0])
+    soln = sharedSoln[0][best_index]
     
-    print("Completed iteration " + str(repeat) + "/100")
-    if len(np.unique(sharedSoln[1:,best_index])) == 30:
-        soln30.append(sharedSoln[0][best_index])
+    #sys.stdout.write("Completed iteration " + str(repeat) + "/100")
     
-    elif len(np.unique(sharedSoln[1:,best_index])) == 31:
-        soln30.append(sharedSoln[0][best_index])
-
-    elif len(np.unique(sharedSoln[1:,best_index])) == 32:
-        soln30.append(sharedSoln[0][best_index])        
-
-    elif len(np.unique(sharedSoln[1:,best_index])) == 33:
-        soln30.append(sharedSoln[0][best_index])    
-        
+    output.write("Iteration: " + str(repeat) + "\n")
+    if len(np.unique(sharedSoln[1:,0])) == 30:
+        output.write("p= 30 " + str(soln) + " in "+ str(runtime) + " seconds. " +" \n")
+    elif len(np.unique(sharedSoln[1:,0])) == 31:
+        output.write("p= 31 " + str(soln) + " in "+ str(runtime) + " seconds. " +" \n")
+    elif len(np.unique(sharedSoln[1:,0])) == 32:
+        output.write("p= 32 " + str(soln) + " in "+ str(runtime) + " seconds. " +" \n")
+    elif len(np.unique(sharedSoln[1:,0])) == 33:
+        output.write("p= 33 " + str(soln) + " in "+ str(runtime) + " seconds. " +" \n")
+    elif len(np.unique(sharedSoln[1:,0])) == 29:
+        output.write("p= 29 " + str(soln) + " in "+ str(runtime) + " seconds. " +" \n")
+    elif len(np.unique(sharedSoln[1:,0])) == 28:
+        output.write("p= 28 " + str(soln) + " in "+ str(runtime) + " seconds. " +" \n")
     else:
         break
     
-output = open('150_iterations.txt', 'a')
 
-for soln in soln30:
-    output.write("p=30 %f \n") %soln
-output.write("\n")
-for soln in soln31:
-    output.write("p=31 %f \n") %soln
-output.write("\n")
-for soln in soln32:
-    output.write("p=32 %f \n") %soln
-output.write("\n")
-for soln in soln33:
-    output.write("p=33 %f \n") %soln
-    
 output.close()
-    #print "Regions: ", len(np.unique(sharedSoln[1:,0]))
-    #print "New Solutions: ", sharedSoln[0]
-    #print "Update Flags: ", sharedupdate[0]
-    #print "Iteration Counter: ",sharedupdate[1]
-    #print "Tabu length: ",sharedupdate[2]
