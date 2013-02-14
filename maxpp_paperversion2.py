@@ -34,34 +34,33 @@ def assign_enclaves(column, z, neighbordict):
      is import as we do not check for relationships between different enclave memberships, 
      just the variance of the current enclave.
     '''
-    def _objective_function_enc(workingenclaves,attribute_vector):
+    def _objective_function_enc(workingenclaves,z):
         groups = workingenclaves
         wss = 0
         for group in np.unique(groups):
-            #print group, attribute[groups==group]
-            wss+= np.sum(np.var(attribute_vector[groups == group]))
-        return wss  
+            wss += np.var(z[groups == group])
+        return wss
     
     enclaves = np.where(sharedSoln[1:,column] == -1)[0]#Returns the indices of unassigned vertices
     workingenclaves = np.copy(sharedSoln[1:,column])
-    for enclave in enclaves:#Iterate over the enclaves
+    for enclave in enclaves:#Iterate over the enclaves - enclave is an index
         neighbors = neighbordict[enclave]
         #Iterate over the neighbors to the enclaves
         wss=float('inf')
-        for neighbor in neighbors:
-            #Now I need to know what groups the neighbor is in.
+        for neighbor in neighbors: #Neighbor is an index 0-100 in our test data
+            #Now I need to know what group the neighbor is in.
             group = sharedSoln[1:,column][neighbor]
-            if group == -1: #Because we could assign an enclave to another enclave, fail the floor test that we do not perform again, and have a low variance...pain to debug this guy!
-                pass
-            else:
-                #Then add the enclave to that neighbor and test the variance
-                workingenclaves[enclave] = group
-                new_wss = _objective_function_enc(workingenclaves, z)
-                if new_wss < wss:
-                    wss = new_wss
-                    
-                    sharedSoln[1:,column][enclave] = workingenclaves[enclave]
-    sharedSoln[:,column][0] = wss
+            if group == -1:
+                continue
+            old_group = workingenclaves[enclave]
+            workingenclaves[enclave] = group
+            new_wss = _objective_function_enc(workingenclaves[np.where(workingenclaves != -1)[0]], z)
+            if not new_wss < wss:
+                workingenclaves[enclave] = old_group
+                continue
+            wss = new_wss
+            sharedSoln[1:,column][enclave] = group
+            sharedSoln[:,column][0] = wss
  
 def check_soln(regions,numP,cores,w,z): #check the solution for min z
     '''This function queries the current IFS space to see if the currently computed soln is better than all other solns.
@@ -183,7 +182,7 @@ def initialize(job,z,w,neighborsdict,floor,floor_variable,numP,cores,maxattempts
 
     for regions in iterate_to_p(job,z,w,neighborsdict,floor,floor_variable,numP,cores, maxattempts, threshold,suboptimal): 
         check_soln(regions, numP,cores,w,z)
-        
+'''USED BY THE DIVERSIFIER - NEEDS TO BE REWRITTEN'''        
 def objective_function_vec(column,attribute_vector):
     '''
     This is an objection function checker designed to access the 
@@ -292,7 +291,7 @@ if suboptimal.size == 0:
 else:
     manager = mp.Manager() #Create a manager to manage the coutdown
     suboptimal_countdown = manager.list(suboptimal)
-    #print "IFS with vaired p generated.  Standardizing to p=%i." %current_max_p
+    print "IFS with vaired p generated.  Standardizing to p=%i." %current_max_p
     jobs = []
     for core in range(0,cores):
         proc = mp.Process(target=initialize, args=(core,z,w,neighbordict,floor,floor_variable,numP,cores, numP * 100, current_max_p,suboptimal_countdown))
@@ -313,6 +312,7 @@ else:
     
  
 #Phase Ic - Assign enclaves
+'''To do - we have a 2 column attribute matrix, and only pass in one column, this is hard coded atm.'''
 jobs = []
 for column_num in range(sharedSoln.shape[1]):
     proc = mp.Process(target=assign_enclaves, args=(column_num, z[:,0], neighbordict))
@@ -326,25 +326,26 @@ del jobs[:], proc, job
 #Phase Id - Set 50% soln to best current soln
 set_half_to_best(cores)
 
-def compute_local_variance(column_num, z,p):
-    groups = sharedSoln[1:,column_num]   
+def compute_local_variance(column_num, z):
+    groups = sharedSoln[1:,column_num]
     for group in np.unique(groups):
-        sharedVar[1:,column_num][group] = np.var(z[groups == group])
-    #Sum the local variance to compute global variance
+        sharedVar[:,column_num][group+1] = np.var(z[groups == group])
+    #Sum the regional variance to compute global variance
     sharedVar[:,column_num][0] = np.sum(sharedVar[1:,column_num])
-    print sharedVar[:,column_num]
 
 #Phase Ie - Compute a shared memory space to store variance per region - this will form the basis of the addative variance checking mechanism
 p = np.unique(sharedSoln[1:,0])
 #We have to initialize space to store the solution.
 lockVar = mp.Lock()
-varSoln = Array(ctypes.c_double, (len(p)+1)*cores, lock=lockVar)
-varSoln = np.frombuffer(varSoln.get_obj()).astype(np.float)
+cvarSoln = Array(ctypes.c_double, (len(p)+1)*cores, lock=lockVar)
+varSoln = np.frombuffer(cvarSoln.get_obj())
 varSoln.shape = ((len(p)+1),cores)
+#Initialize the local variance array in shared memory
 _init_var(varSoln)
+#Process
 jobs = []
 for column_num in range(sharedSoln.shape[1]):
-    proc = mp.Process(target=compute_local_variance, args=(column_num, z,p))
+    proc = mp.Process(target=compute_local_variance, args=(column_num, z[:,0]))
     jobs.append(proc)
 for job in jobs:
     job.start()
@@ -352,9 +353,14 @@ for job in jobs:
     job.join()
 del jobs[:], proc, job
 
-#print sharedSoln[0]
-exit()
-def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, maxfailures=15,maxiterations=10):
+print sharedSoln[0]
+#Uncomment to check that enclaves variance and local variance computation are identical.
+#print "Soln computed at enclave addition: ", sharedSoln[0]
+#print "Soln computed by addative varaince: ", sharedVar[0]
+
+
+def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, lockflag, maxfailures=50,maxiterations=10):
+        
     ##Pseudo constants
     pid = mp.current_process()._identity[0]
     tabu_list = deque(maxlen=sharedupdate[2][core])#What is this core's tabu list length? 
@@ -437,28 +443,23 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
             pass
             #print div_soln_space[0]
             #print "Attempt to diversify failed."
-            
-
-        
+ 
     ##This shows that we are operating asynchronously.   
     #if core ==2:
         #time.sleep(5)
     
     while sum(sharedupdate[1]) < maxiterations:
-        core_soln_column = (core + sharedupdate[1][core])%len(sharedupdate[1]) #This iterates the cores around the search space.
+        core_soln_column = (core + sharedupdate[1][core])%len(sharedupdate[1])
         
-        #Check for diversification here and diversify if necessary...
         if sharedupdate[0][core_soln_column] == False:
             _diversify_soln(core_soln_column, neighbordict,z, floor_variable,lockSoln) #Li, et. al (in press - P-Compact_Regions)
 
         #print "ProcessID %i is processing soln column %i in iteration %i."%(pid, core_soln_column,sharedupdate[1][core]) #Uncomment to see that cores move around the search space    
-        failures = 0 #The total iteration counter
-        #What are the current best solutions local to this core?
+        failures = 0 #The total local failure counter
         local_best_variance = sharedSoln[:,core_soln_column][0]
         workingSoln = np.copy(sharedSoln[:,core_soln_column])    
         
-        while failures <= maxfailures:#How many total iterations can the core make
-      
+        while failures <= maxfailures:
             #Select a random starting point in the search space.
             nr = np.unique(workingSoln[1:]) #This is 0 based, ie. region 0 - region 31
             regionIDs = nr
@@ -483,39 +484,53 @@ def tabu_search(core, z, neighbordict,numP,w,floor_variable,lockSoln, lockflag, 
                 
                 #Iterate through the neighbors
                 for neighbor in neighbors:
-                    neighborSoln = np.copy(workingSoln[:]) #Pull a copy of the local working version
+                    neighborSoln = np.copy(workingSoln[1:]) #Pull a copy of the local working version
                     old_membership = neighborSoln[neighbor]#Track where we started to check_floor
-                    
+                    #For whatever reason candidates block is adding other units in the region, ie. we test moving from region 1 to region 1...
+                    '''ToDO: Check the candidates code above, something is wrong with it...'''
+                    if old_membership == region:
+                        continue
+                    #Check the tabu list
                     tabu_move_check = _tabu_check(tabu_list, neighbor, region, old_membership)
                     if tabu_move_check is not None:
-                        break
+                        continue
                     
                     neighborSoln[neighbor] = region #Move the neighbor into the new region in the copy
+
+                    #Check the floor
+                    floor_check = True
+                    for group in np.unique(neighborSoln):
+                        if not np.sum(floor_variable[neighborSoln == group]) >= floor:
+                            floor_check = False
+                            continue
+                    if floor_check == False:
+                        continue
                     
-                    #Here we start to check the swap and see if it is better
-                    swap_var = objective_function_vec(neighborSoln[1:],z)#Variance of the new swap
-                    if swap_var <= local_best_variance:
-                        block = np.where(workingSoln[1:] == neighbor)[0]#A list of the members in a region.
-                        block=block.tolist() #For current contiguity check
-                        if check_contiguity(neighbordict, block, neighbor):#Check contiguity
-                            if check_floor(np.where(neighborSoln[1:,]==region)[0], floor_variable, w) and check_floor(np.where(neighborSoln[1:,]==old_membership)[0],floor_variable,w):#What about the floor of the region loosing the member in the original code?
-                                #print "Swap made on core %i.  Objective function improved from %f to %f." %(pid, swap_var, local_best_variance)
-                                local_best_variance = swap_var#Set the new local best to the swap. We have made a swap that betters the objective function.
-                                neighborSoln[0] = swap_var
-                                workingSoln[:] = neighborSoln[:]
-                                swap_flag = True #We made a swap
-                                tabu_list.appendleft((neighbor,old_membership,region))#tuple(polygon_id, oldgroup,newgroup)
-                            else:
-                                del neighborSoln
-                                #print "Swap failed due to floor_check."
-                        else:
-                            del neighborSoln
-                            #print "Swap failed due to contiguity."
+                    #Compute the local variance
+                    varcopy = np.copy(sharedVar[:,core_soln_column])
+                    varcopy[old_membership] = np.var(z[neighborSoln== old_membership])
+                    varcopy[old_membership] = np.var(z[neighborSoln == region])
+                    varcopy[0] = np.sum(varcopy[1:])
+                    
+                    #Check the locally compute varaince against current working best.
+                    if varcopy[0] >= workingSoln[0]:
+                        continue
+                    
+                    #Check contiguity of the swap
+                    block = np.where(workingSoln[1:] == neighbor)[0].tolist()
+                    if not check_contiguity(neighbordict, block, neighbor):
+                        #print "Failed contiguity check"
+                        continue
+                    
+                    #After this we have passed all tests, a check of all possible swaps has yielded a better one.
+                    swap_flag = True
+                    local_best_variance = varcopy[0]
+                    workingSoln[0] = local_best_variance
+                    workingSoln[1:] = neighborSoln[:]
+                    tabu_list.appendleft((neighbor,old_membership,region))
                     
             if swap_flag == False:
-                #print "Failed to make any swap, incrementing the fail counter."
                 failures += 1
-            
         #print workingSoln, len(np.unique(workingSoln[1:]))    
         
         with lockflag:
@@ -543,7 +558,7 @@ print "Initiating Phase II: Tabu Search"
 
 #We  need an iterator here to count max iterations or total time to work or something.  We track failures internal to each process.
 for core in range(cores):
-    proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor_variable, lockSoln, lockflag))
+    proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor, floor_variable, lockSoln, lockflag))
     jobs.append(proc)
 for job in jobs:
     job.start()
@@ -551,8 +566,10 @@ for job in jobs:
     job.join()
 del jobs[:], proc, job
 
+print
 print "Regions: ", len(np.unique(sharedSoln[1:,0]))
 print "New Solutions: ", sharedSoln[0]
 print "Update Flags: ", sharedupdate[0]
 print "Iteration Counter: ",sharedupdate[1]
 print "Tabu length: ",sharedupdate[2]
+print 
