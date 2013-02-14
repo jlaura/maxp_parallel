@@ -572,4 +572,5 @@ print "New Solutions: ", sharedSoln[0]
 print "Update Flags: ", sharedupdate[0]
 print "Iteration Counter: ",sharedupdate[1]
 print "Tabu length: ",sharedupdate[2]
+print "Best Solution: ", sharedSoln[0].min()
 print 
