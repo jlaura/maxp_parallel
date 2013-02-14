@@ -90,7 +90,7 @@ def check_floor(region,floor_variable,w):
     '''
     Simple summation function that totals membership in a region and tests against
      the mandated floor value.
-    '''
+    '''    
     if not type(region) == list: #Initialization passes a list, tabu passes an ndarray
         region.tolist()
     selectionIDs = [w.id_order.index(i) for i in region]
@@ -327,6 +327,7 @@ del jobs[:], proc, job
 set_half_to_best(cores)
 
 def compute_local_variance(column_num, z):
+    
     groups = sharedSoln[1:,column_num]
     for group in np.unique(groups):
         sharedVar[:,column_num][group+1] = np.var(z[groups == group])
@@ -472,7 +473,6 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
             #Iterate through the regions, checking potential swaps
             for region in regionIDs:
                 members = np.where(workingSoln == region)[0] #get the members of the region
-                #print region, members
                 #Get the neighbors to the members.  Grab only those that could change.
                 neighbors = []
                 for member in members:
@@ -481,6 +481,8 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
                     candidates = [candidate for candidate in candidates if candidate not in neighbors]
                     neighbors.extend(candidates)
                 candidates = []
+                
+                '''What if I generate an array of solutions where each neighbor swap is made.  Then apply_over_axis to check that the total size of each '''
                 
                 #Iterate through the neighbors
                 for neighbor in neighbors:
@@ -498,12 +500,8 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
                     neighborSoln[neighbor] = region #Move the neighbor into the new region in the copy
 
                     #Check the floor
-                    floor_check = True
-                    for group in np.unique(neighborSoln):
-                        if not np.sum(floor_variable[neighborSoln == group]) >= floor:
-                            floor_check = False
-                            continue
-                    if floor_check == False:
+                    floor_check = True 
+                    if not np.sum(floor_variable[neighborSoln == old_membership]) and np.sum(floor_variable[neighborSoln == region]) >= floor:
                         continue
                     
                     #Compute the local variance
