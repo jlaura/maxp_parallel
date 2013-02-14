@@ -241,6 +241,9 @@ p = np.ones((w.n, 1), float)
 floor_variable = p
 floor = 3
 
+'''START TIMING HERE - AFTER TEST DATA GENERATED'''
+time0 = time.time()
+
 #Multiprocessing setup
 cores = mp.cpu_count()
 cores = cores * 2
@@ -553,7 +556,7 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
         
 #Phase II - Swapping
 print "Initiating Phase II: Tabu Search"
-
+time1 = time.time()
 #We  need an iterator here to count max iterations or total time to work or something.  We track failures internal to each process.
 for core in range(cores):
     proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor, floor_variable, lockSoln, lockflag))
@@ -564,6 +567,10 @@ for job in jobs:
     job.join()
 del jobs[:], proc, job
 
+time2 = time.time()
+init_time = time1 - time0
+total_time = time2 - time0
+
 print
 print "Regions: ", len(np.unique(sharedSoln[1:,0]))
 print "New Solutions: ", sharedSoln[0]
@@ -571,4 +578,6 @@ print "Update Flags: ", sharedupdate[0]
 print "Iteration Counter: ",sharedupdate[1]
 print "Tabu length: ",sharedupdate[2]
 print "Best Solution: ", sharedSoln[0].min()
+print "Initialization Time: ", init_time
+print "Total Processing time: ", total_time
 print 
