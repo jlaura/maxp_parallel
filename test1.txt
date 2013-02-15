@@ -1,0 +1,2438 @@
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.7406174   1.53504807  1.82225714  1.71712822  1.53504807  1.53504807
+  1.89850061  1.53504807]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.34701973  1.34701973  1.38616597  1.3418462   1.38673029  1.40452762
+  1.40452762  1.37896471]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 32.  11.   9.   6.   8.   8.   4.   9.]
+Tabu length:  [ 25.  12.  26.  18.   6.  24.   6.  18.]
+Best Solution:  1.34184619995
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.73771624  1.59183914  1.59183914  1.59183914  1.59183914  1.62773735
+  1.69144344  1.77098799]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.48326138  1.54583803  1.48326138  1.48326138  1.50879869  1.48326138
+  1.55581753  1.56450821]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  1.]
+Iteration Counter:  [  6.   7.   4.   3.  47.   3.   8.   9.]
+Tabu length:  [ 16.   6.   9.  10.  20.  10.  17.  17.]
+Best Solution:  1.48326138339
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.60817486  1.60817486  1.61077107  1.7482336   1.60817486  1.62057806
+  1.6273816   1.60817486]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.40206409  1.35848134  1.35848134  1.38106314  1.35848134  1.38106314
+  1.35848134  1.4052955 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   6.  10.  21.  10.   9.  18.   6.]
+Tabu length:  [  8.  26.  23.  24.  16.  14.  11.  13.]
+Best Solution:  1.35848134165
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.72570641  1.5831279   1.67650663  1.5831279   1.88178077  1.75545844
+  1.5831279   1.5831279 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.37179862  1.38349479  1.38763215  1.37179862  1.37179862  1.38439167
+  1.37179862  1.42307311]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  3.  12.   5.  16.   6.  32.   9.   4.]
+Tabu length:  [  8.  11.   8.  17.  25.  15.   8.  24.]
+Best Solution:  1.37179862
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.51090852  1.56771715  1.51090852  1.51090852  1.79643531  1.70707567
+  1.51090852  1.69789104]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.40081728  1.40081728  1.4082938   1.40081728  1.46541328  1.40081728
+  1.41554657  1.44789899]
+Update Flags:  [ 0.  0.  1.  0.  0.  0.  1.  1.]
+Iteration Counter:  [  5.   2.   3.  15.  10.  43.   2.   7.]
+Tabu length:  [  9.  20.   8.   8.  12.  22.  12.  18.]
+Best Solution:  1.40081727769
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.69297001  1.75681671  1.77251984  1.53233457  1.53233457  1.53233457
+  1.53233457  1.61886382]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.35905567  1.35905567  1.35905567  1.36093078  1.36093078  1.36093078
+  1.35905567  1.36093078]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  7.  30.   3.   3.  21.   9.   4.  10.]
+Tabu length:  [ 16.  21.  18.  25.  23.   6.   8.   7.]
+Best Solution:  1.3590556662
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.83994076  1.69136197  1.60630657  1.60630657  1.60630657  1.6625121
+  1.69715931  1.60630657]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.4784016   1.4627996   1.43974044  1.43974044  1.43974044  1.46073828
+  1.43974044  1.46045919]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  2.  62.   3.   2.   2.   2.   3.  11.]
+Tabu length:  [ 15.   7.  14.  13.   9.  23.  10.  25.]
+Best Solution:  1.43974043606
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.7535135   1.50464829  1.50464829  1.73636832  1.75723223  1.50464829
+  1.50464829  1.53866751]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.18545304  1.18545304  1.21830999  1.18545304  1.37851454  1.33699293
+  1.18545304  1.37851454]
+Update Flags:  [ 0.  0.  1.  0.  0.  0.  0.  1.]
+Iteration Counter:  [ 11.   9.   7.  16.   9.   6.  21.   8.]
+Tabu length:  [ 21.  11.  20.  22.  23.  20.  19.  10.]
+Best Solution:  1.1854530386
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6129298   1.76580234  1.68938557  1.6129298   1.6129298   1.6129298
+  1.63083962  1.6489044 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.44326582  1.47022625  1.45699775  1.47017121  1.45699775  1.46790465
+  1.45699775  1.45699775]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  3.   4.   5.   3.   5.  53.  11.   3.]
+Tabu length:  [ 25.  11.   9.  25.   9.  22.  12.  22.]
+Best Solution:  1.44326582435
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.66570053  1.39039206  1.35434948  1.54006053  1.35434948  1.52444158
+  1.35434948  1.35434948]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.24953847  1.25239808  1.24953847  1.25073804  1.24953847  1.25478645
+  1.24953847  1.25873634]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [  3.  64.   2.   3.   2.   5.   5.   3.]
+Tabu length:  [  8.  23.  26.   7.  18.  26.  17.   7.]
+Best Solution:  1.24953847055
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.36213636  1.80692081  1.36213636  1.73083748  1.61531113  1.67899686
+  1.36213636  1.36213636]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30306047  1.26083813  1.31179823  1.26083813  1.32634007  1.26083813
+  1.26083813  1.27333301]
+Update Flags:  [ 1.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  2.   3.   3.   6.   2.   2.   5.  64.]
+Tabu length:  [ 18.  26.  26.  21.  12.   6.   9.  14.]
+Best Solution:  1.26083812702
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.70105831  1.63659803  1.7704312   1.63659803  1.63659803  1.63659803
+  1.81159416  1.84641227]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.49454969  1.49454969  1.49619572  1.5127786   1.5127786   1.49454969
+  1.49254899  1.56868156]
+Update Flags:  [ 0.  0.  1.  0.  0.  1.  0.  0.]
+Iteration Counter:  [ 15.   6.  27.   9.   5.   5.  12.   8.]
+Tabu length:  [ 20.  20.  26.  18.  20.  17.  25.  19.]
+Best Solution:  1.49254898614
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.73398614  1.56715858  1.61314986  1.56715858  1.56715858  1.74828459
+  1.56715858  1.69184025]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26794481  1.26794481  1.27173452  1.30474037  1.26794481  1.26794481
+  1.29313453  1.30474037]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 23.  13.   4.  22.   8.   8.   5.   4.]
+Tabu length:  [ 24.  20.  20.  23.  26.  14.  20.  11.]
+Best Solution:  1.26794481306
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.57721125  1.69919201  1.47308014  1.47308014  1.47308014  1.68171425
+  1.47308014  1.48669899]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.23003756  1.17258681  1.24478724  1.13576325  1.17258681  1.13576325
+  1.13576325  1.13576325]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 11.   8.  19.  15.   8.  10.  11.   5.]
+Tabu length:  [ 23.  21.   7.  22.  10.   7.  17.   6.]
+Best Solution:  1.13576325498
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.67695124  1.8000406   1.41085929  1.41085929  1.41085929  1.41085929
+  1.72918934  1.45673188]
+Initiating Phase II: Tabu Search
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.91024746  1.54846919  1.55472147  1.54846919  1.54846919  1.54846919
+  1.88423801  1.89885464]
+Initiating Phase II: Tabu Search
+scipy 0.7+ is required
+scipy 0.7+ is required
+
+Regions:  32
+New Solutions:  [ 1.31635341  1.23605651  1.3177757   1.23605651  1.23605651  1.27333041
+  1.23605651  1.31897571]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   9.  11.  12.  15.  16.   8.   9.]
+Tabu length:  [ 14.  11.  19.  16.  11.   7.  24.  14.]
+Best Solution:  1.23605651425
+Initialization Time:  2.74112987518
+Total Processing time:  45.9587619305
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.66876154  1.48781852  1.71749649  1.67793771  1.48781852  1.48781852
+  1.48781852  1.72353035]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.35372037  1.35372037  1.33284202  1.31656716  1.31656716  1.28359877
+  1.31656716  1.32003591]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 38.   5.  12.  11.   5.   6.   5.   5.]
+Tabu length:  [ 15.  11.   6.   7.  16.  26.  25.  18.]
+Best Solution:  1.2835987693
+Initialization Time:  2.13506913185
+Total Processing time:  18.2697780132
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.80966402  1.79792983  1.74261067  1.74261067  1.91803048  1.85634661
+  1.74261067  1.74261067]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.48399646  1.47751338  1.44601923  1.44601923  1.55502396  1.50035856
+  1.49444024  1.48399646]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 15.   6.   5.   7.  17.  15.   7.  15.]
+Tabu length:  [ 25.  19.  19.  22.  15.  18.   9.  17.]
+Best Solution:  1.4460192253
+Initialization Time:  3.75351905823
+Total Processing time:  28.2837991714
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.36107524  1.52939049  1.5283289   1.67969526  1.36107524  1.51772436
+  1.36107524  1.36107524]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.10920479  1.07505078  1.1110752   1.07505078  1.07505078  1.10822188
+  1.07505078  1.1110752 ]
+Update Flags:  [ 0.  0.  1.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  4.   5.   7.  34.  23.   4.   6.   4.]
+Tabu length:  [ 11.  16.  11.  13.   7.  12.  17.  10.]
+Best Solution:  1.07505078136
+Initialization Time:  2.88855791092
+Total Processing time:  19.0940849781
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6106536   1.6106536   1.78093106  1.6106536   1.70339489  1.63113815
+  1.6106536   1.79215312]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.28932758  1.26098135  1.26098135  1.3120349   1.28337587  1.27978961
+  1.26098135  1.30888403]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 12.   8.  26.   5.   6.   7.   8.  15.]
+Tabu length:  [ 25.  22.  19.   6.  24.   6.  11.  18.]
+Best Solution:  1.26098135196
+Initialization Time:  1.60793805122
+Total Processing time:  21.8597099781
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64000172  1.80226244  1.61390881  1.61347664  1.61347664  1.61347664
+  1.62924667  1.61347664]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.41256748  1.41256748  1.41256748  1.41669612  1.44933342  1.41256748
+  1.44520478  1.44520478]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 10.   5.  17.   9.  24.  13.   5.   4.]
+Tabu length:  [ 11.  26.  11.  16.  19.  23.   6.   6.]
+Best Solution:  1.41256748362
+Initialization Time:  2.35104012489
+Total Processing time:  21.384057045
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.76233046  1.70353314  1.70353314  1.7121155   1.7593663   1.70353314
+  1.75322419  1.70353314]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.42912357  1.38837176  1.45271519  1.4202877   1.40632197  1.38837176
+  1.46036624  1.38837176]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  5.  18.  26.   4.   4.  11.   7.  12.]
+Tabu length:  [ 26.   6.   9.  18.  17.  16.  20.  12.]
+Best Solution:  1.38837175918
+Initialization Time:  2.28254103661
+Total Processing time:  17.7020931244
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.55441534  1.55441534  1.74585493  1.55441534  1.65654426  1.75030081
+  1.66734751  1.55441534]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.07635016  1.10325765  1.06496542  1.06496542  1.13395697  1.06817942
+  1.06496542  1.06817942]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  6.   8.  23.   6.  11.  18.   7.   8.]
+Tabu length:  [  9.  16.   9.  15.  15.  24.  14.  10.]
+Best Solution:  1.06496541692
+Initialization Time:  1.98206996918
+Total Processing time:  22.5645830631
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6565088   1.58164557  1.44037122  1.44037122  1.44037122  1.76986356
+  1.44037122  1.6920638 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.39588238  1.28068164  1.20689103  1.20689103  1.2227362   1.24161578
+  1.25518509  1.23329716]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [ 34.   4.  15.   4.   6.   3.  17.   4.]
+Tabu length:  [ 21.   7.   7.  14.  20.   9.  17.  24.]
+Best Solution:  1.20689102923
+Initialization Time:  2.66640019417
+Total Processing time:  19.2170259953
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.61988305  1.61988305  1.61988305  1.76681107  1.78673074  1.7487576
+  1.61988305  1.75325264]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3070153   1.30573947  1.30573947  1.3070153   1.30573947  1.30573947
+  1.3083536   1.3070153 ]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   9.   6.  18.  27.   5.   9.   7.]
+Tabu length:  [  8.  20.  24.  12.   9.  10.  21.  22.]
+Best Solution:  1.30573946904
+Initialization Time:  3.36028599739
+Total Processing time:  21.1836540699
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.76556042  1.70954664  1.70954664  1.78810333  1.79093806  1.70954664
+  1.70954664  1.7898074 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26754911  1.26207169  1.28294401  1.27158846  1.26754911  1.26207169
+  1.26207169  1.26207169]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 10.   9.   8.   9.  19.   7.  16.   9.]
+Tabu length:  [ 17.  12.  10.   9.  18.  14.   9.   7.]
+Best Solution:  1.26207169383
+Initialization Time:  1.36971592903
+Total Processing time:  34.2044661045
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.89409876  1.78719329  1.87181663  1.67883041  1.67883041  1.67883041
+  1.7369992   1.67883041]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.34027272  1.34027272  1.3565405   1.34027272  1.3565405   1.3565405
+  1.36541257  1.34027272]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  4.   8.   7.  11.  38.   4.   9.   6.]
+Tabu length:  [ 10.  24.  20.   6.  21.  18.  18.  21.]
+Best Solution:  1.34027272265
+Initialization Time:  3.40307807922
+Total Processing time:  20.7542281151
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.39373484  1.39373484  1.78391184  1.64789313  1.39373484  1.78668566
+  1.39373484  1.76424062]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.23667435  1.2638002   1.23667435  1.23667435  1.26555332  1.25626685
+  1.25504831  1.23667435]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  9.  14.  15.  10.  14.  10.   8.   7.]
+Tabu length:  [ 13.  23.   7.  10.  20.  26.  11.  19.]
+Best Solution:  1.23667434586
+Initialization Time:  2.28493905067
+Total Processing time:  29.9507989883
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.62344472  1.6435659   1.62344472  1.74234838  1.62344472  1.63417854
+  1.62344472  1.65142848]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.41120673  1.4375405   1.40529882  1.40529882  1.43237985  1.41120673
+  1.48971081  1.4404538 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.   7.  11.   8.   9.   7.  31.   6.]
+Tabu length:  [  9.  16.  21.  17.  20.   7.  16.  26.]
+Best Solution:  1.4052988244
+Initialization Time:  1.581387043
+Total Processing time:  30.5439009666
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.42755731  1.72796023  1.42755731  1.42755731  1.42755731  1.62514188
+  1.72675026  1.68827573]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.17672156  1.19454176  1.17205819  1.17205819  1.17205819  1.17205819
+  1.20458871  1.17672156]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  4.   7.   5.   6.   5.  20.  14.  26.]
+Tabu length:  [ 24.   8.   9.  16.  18.  19.  16.   6.]
+Best Solution:  1.17205819055
+Initialization Time:  2.28032183647
+Total Processing time:  18.004693985
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.66029715  1.66029715  1.7494719   1.66029715  1.78850504  1.71786686
+  1.80669142  1.66029715]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.41023023  1.40061249  1.38329813  1.40061249  1.38329813  1.38329813
+  1.38329813  1.40061249]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.   6.   7.   8.  19.  22.   7.  10.]
+Tabu length:  [ 15.  22.   9.   6.  10.  22.  20.  13.]
+Best Solution:  1.38329813289
+Initialization Time:  2.0846259594
+Total Processing time:  27.0829730034
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.36427223  1.36427223  1.63184942  1.58324252  1.68872753  1.36427223
+  1.49091284  1.36427223]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.18915505  1.17171108  1.15319076  1.16109776  1.15319076  1.17132553
+  1.15319076  1.15319076]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [  9.  14.   9.   8.  20.   9.   8.  10.]
+Tabu length:  [ 23.  22.  13.  22.  25.  15.  14.  13.]
+Best Solution:  1.15319076181
+Initialization Time:  1.56137013435
+Total Processing time:  37.1050541401
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.54956481  1.80419643  1.58845004  1.54956481  1.56001968  1.54956481
+  1.56417402  1.54956481]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.42612227  1.45683257  1.46948832  1.42612227  1.42612227  1.43284131
+  1.42612227  1.43702759]
+Update Flags:  [ 0.  0.  0.  1.  1.  0.  0.  0.]
+Iteration Counter:  [ 29.   9.   4.   7.   3.  13.   8.  14.]
+Tabu length:  [ 12.  16.  18.  25.  12.  12.  20.  25.]
+Best Solution:  1.4261222653
+Initialization Time:  2.32457590103
+Total Processing time:  14.3114590645
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.7228543   1.70594242  1.61301389  1.61301389  1.66889307  1.67808156
+  1.61301389  1.61301389]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30485424  1.30454138  1.30454138  1.30420386  1.3050721   1.32875686
+  1.32301649  1.3050721 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 11.  11.   4.   6.  18.   7.   5.  25.]
+Tabu length:  [ 11.  18.  22.  12.  10.  14.  10.  24.]
+Best Solution:  1.30420386415
+Initialization Time:  1.40738010406
+Total Processing time:  21.1933200359
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.68677296  1.62042954  1.79953228  1.74335284  1.62042954  1.74730887
+  1.62042954  1.62042954]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.50989871  1.51711166  1.53222397  1.50989871  1.52503769  1.50989871
+  1.50989871  1.51388738]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   5.   8.   8.   7.  13.   7.  32.]
+Tabu length:  [ 15.  25.  22.  10.   7.  23.  11.  21.]
+Best Solution:  1.50989871022
+Initialization Time:  2.84271287918
+Total Processing time:  25.291656971
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.39746477  1.54971988  1.84561866  1.39746477  1.39746477  1.39746477
+  1.69995332  1.67616549]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27581317  1.27581317  1.29094472  1.28568694  1.27581317  1.28568694
+  1.29208086  1.27581317]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  7.  32.   7.   4.  22.   8.   4.   3.]
+Tabu length:  [ 12.  14.  15.  10.  16.  13.  25.  18.]
+Best Solution:  1.27581317345
+Initialization Time:  1.71677803993
+Total Processing time:  15.7445640564
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.54515645  1.47128671  1.47128671  1.54397334  1.47128671  1.73563151
+  1.68928377  1.47128671]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.24666031  1.25387455  1.24568747  1.25985686  1.26615544  1.25363727
+  1.24568747  1.25985686]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  9.   5.   6.  13.   5.  11.  12.  26.]
+Tabu length:  [ 10.  24.  18.  24.  25.  21.  13.  13.]
+Best Solution:  1.24568746724
+Initialization Time:  3.16370487213
+Total Processing time:  23.1740739346
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.69753862  1.51850011  1.76676497  1.51850011  1.51850011  1.51850011
+  1.68541178  1.71662365]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3482008   1.3180112   1.3180112   1.3180112   1.35447621  1.35178224
+  1.3180112   1.3336208 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  6.   4.   7.  37.  12.   9.   7.   5.]
+Tabu length:  [ 14.  17.   6.  11.  10.  11.   9.  12.]
+Best Solution:  1.31801119934
+Initialization Time:  2.90280604362
+Total Processing time:  20.2088851929
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.62223823  1.48182196  1.74312688  1.48182196  1.48182196  1.48182196
+  1.76573484  1.8473732 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.35379605  1.35379605  1.45159653  1.35379605  1.35379605  1.35554048
+  1.48550903  1.48904267]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  4.   5.  31.  14.   7.   7.  12.   7.]
+Tabu length:  [ 26.   9.  14.  23.  26.  23.  17.  22.]
+Best Solution:  1.35379604907
+Initialization Time:  2.26859116554
+Total Processing time:  18.5104670525
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.55141878  1.6930253   1.55141878  1.55141878  1.62913601  1.69821858
+  1.60522928  1.55141878]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.40001577  1.40110164  1.40110164  1.44449129  1.42842713  1.40001577
+  1.40001577  1.40001577]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  3.  11.  12.   9.  16.   4.  27.   5.]
+Tabu length:  [ 21.  23.  13.   6.  24.   6.  23.  15.]
+Best Solution:  1.40001577014
+Initialization Time:  1.95749807358
+Total Processing time:  14.9278299809
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.54473122  1.69276646  1.73972434  1.66745922  1.54473122  1.69023797
+  1.54473122  1.54473122]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.2405327   1.32901008  1.24817358  1.22474937  1.18876642  1.25121505
+  1.24032806  1.20000431]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   4.   9.   5.   4.   5.  14.  39.]
+Tabu length:  [  7.  26.  20.  19.  13.  18.  16.  17.]
+Best Solution:  1.1887664216
+Initialization Time:  3.05340600014
+Total Processing time:  21.0562708378
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.7894116   1.59486648  1.70467803  1.6438153   1.59486648  1.59486648
+  1.8439803   1.59486648]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.47230816  1.47230816  1.47230816  1.47230816  1.49139346  1.5019852
+  1.50084766  1.47818565]
+Update Flags:  [ 0.  1.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 44.  11.   4.   6.   4.   4.   5.   9.]
+Tabu length:  [ 26.   7.  26.  23.  17.  12.  26.  26.]
+Best Solution:  1.4723081564
+Initialization Time:  1.54626297951
+Total Processing time:  18.5346300602
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64940079  1.21773665  1.21773665  1.67934007  1.21773665  1.69691272
+  1.21773665  1.68704099]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.04934276  1.06159545  1.04934276  1.04934276  1.06159545  1.06251819
+  1.04934276  1.06401251]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  9.  11.  15.   8.  12.  11.  11.  10.]
+Tabu length:  [ 15.  16.  14.  26.  21.  16.  20.   6.]
+Best Solution:  1.0493427629
+Initialization Time:  1.0949780941
+Total Processing time:  37.389480114
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.75820219  1.64616063  1.64616063  1.78082545  1.81010511  1.81851378
+  1.64616063  1.64616063]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.4174094   1.42754898  1.33702626  1.33702626  1.33702626  1.33702626
+  1.43791291  1.37628344]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [  5.   8.   5.   8.   6.  42.   6.   7.]
+Tabu length:  [ 15.  10.  14.  23.  24.  21.  10.  18.]
+Best Solution:  1.33702626439
+Initialization Time:  2.85736393929
+Total Processing time:  25.08334589
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.77460365  1.58694346  1.49017468  1.49017468  1.49017468  1.61927005
+  1.74884942  1.49017468]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.25564893  1.25024722  1.27447512  1.25024722  1.26930434  1.26930434
+  1.3137357   1.25024722]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  5.  10.   5.   6.  25.   8.   6.  22.]
+Tabu length:  [ 23.  14.   6.  19.  22.  12.   8.  19.]
+Best Solution:  1.25024722056
+Initialization Time:  2.26137399673
+Total Processing time:  22.6809289455
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56963667  1.56963667  1.56963667  1.76256245  1.69482523  1.56963667
+  1.58858366  1.78037201]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.4224759   1.40516982  1.41990632  1.3816576   1.45132861  1.42340271
+  1.42412662  1.3816576 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   5.  17.  16.   6.   8.  16.  12.]
+Tabu length:  [ 18.  25.  21.  23.  14.  17.  17.  11.]
+Best Solution:  1.38165760426
+Initialization Time:  1.66588401794
+Total Processing time:  23.5390880108
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.43970221  1.61906028  1.75505871  1.59631924  1.43970221  1.43970221
+  1.43970221  1.60377295]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.28798052  1.24712926  1.24712926  1.27691002  1.29377976  1.24712926
+  1.24712926  1.28085928]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  8.   9.   8.  12.   7.  23.  10.  10.]
+Tabu length:  [ 11.  23.  23.  23.  21.  12.  10.  20.]
+Best Solution:  1.24712926146
+Initialization Time:  1.96134305
+Total Processing time:  35.6249339581
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.50273833  1.65187838  1.50273833  1.85853431  1.50273833  1.50273833
+  1.81892343  1.66733079]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.24894437  1.25996244  1.24894437  1.25143831  1.25143831  1.24894437
+  1.24894437  1.25143831]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [ 15.  10.  21.   6.  11.  10.   7.   7.]
+Tabu length:  [ 18.  20.  25.   7.  26.  20.  22.  18.]
+Best Solution:  1.24894436583
+Initialization Time:  2.0563249588
+Total Processing time:  23.168432951
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.50167474  1.59613502  1.50167474  1.53022906  1.50167474  1.71588075
+  1.50167474  1.75495859]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3655953   1.45380687  1.3472249   1.3472249   1.34741826  1.3472249
+  1.35164741  1.36387768]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  4.  20.  15.   7.   5.  14.   8.  14.]
+Tabu length:  [ 19.  15.   9.  16.   8.   7.  22.  15.]
+Best Solution:  1.34722490259
+Initialization Time:  2.5593059063
+Total Processing time:  16.4838058949
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56003505  1.70617358  1.78924682  1.56003505  1.56003505  1.74090544
+  1.75096776  1.56003505]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.40362479  1.40739244  1.40739244  1.40362479  1.40362479  1.42591337
+  1.40739244  1.40362479]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   5.   4.  42.   5.  17.   4.   4.]
+Tabu length:  [ 17.  26.  19.  11.  14.  18.   7.   6.]
+Best Solution:  1.4036247878
+Initialization Time:  2.77289390564
+Total Processing time:  19.3560068607
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.68422347  1.67800367  1.54956384  1.59462615  1.54956384  1.64487153
+  1.54956384  1.54956384]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.41440732  1.41069521  1.41069521  1.41069521  1.41069521  1.41069521
+  1.41440732  1.41779561]
+Update Flags:  [ 1.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  7.   4.  35.   7.  14.   7.   5.   8.]
+Tabu length:  [ 22.   9.  17.  24.  26.  23.  12.   9.]
+Best Solution:  1.41069520572
+Initialization Time:  1.96267700195
+Total Processing time:  22.2806119919
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.80377494  1.77720987  1.63166847  1.63626801  1.63166847  1.84475043
+  1.63166847  1.63166847]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.43599648  1.32397409  1.46330304  1.46330304  1.48142866  1.32397409
+  1.32397409  1.32397409]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  9.   4.  12.   5.   4.  11.  35.   7.]
+Tabu length:  [ 18.   7.  26.  26.  26.  13.   8.  21.]
+Best Solution:  1.32397408764
+Initialization Time:  2.42029809952
+Total Processing time:  19.4953999519
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.4926548   1.4926548   1.4926548   1.4926548   1.62950945  1.7135236
+  1.65364904  1.53128298]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.29274981  1.28521429  1.29274981  1.31026333  1.28521429  1.28521429
+  1.28521429  1.29274981]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.  43.   5.  11.   8.   5.   5.   5.]
+Tabu length:  [ 19.  23.  20.  11.  22.  12.  26.  19.]
+Best Solution:  1.28521428867
+Initialization Time:  2.34371209145
+Total Processing time:  23.5896971226
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.57915012  1.74107079  1.38683626  1.78190339  1.38683626  1.38683626
+  1.38683626  1.56616441]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27351219  1.27351219  1.26550334  1.26550334  1.27284825  1.27820449
+  1.29837813  1.27381083]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  3.  32.   7.   4.   3.   6.  17.  15.]
+Tabu length:  [ 20.  20.  18.  15.  10.  17.  15.  13.]
+Best Solution:  1.26550334196
+Initialization Time:  2.38102507591
+Total Processing time:  15.6963069439
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6608186   1.79066379  1.6608186   1.69812465  1.6608186   1.6608186
+  1.7401088   1.73990796]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.22136518  1.23812763  1.33928317  1.22136518  1.22136518  1.32022997
+  1.32568282  1.22136518]
+Update Flags:  [ 1.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  6.   5.   5.  14.   5.   5.  35.  12.]
+Tabu length:  [ 11.  23.   6.  24.  10.   8.  20.   7.]
+Best Solution:  1.22136517877
+Initialization Time:  1.71945500374
+Total Processing time:  18.6736371517
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.5656093   1.84834427  1.78800954  1.57329651  1.5656093   1.5656093
+  1.5656093   1.60021097]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.28753709  1.31898213  1.37110848  1.38657813  1.37110848  1.36036178
+  1.37589143  1.33973731]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  9.   6.   7.   7.   8.  13.  18.  19.]
+Tabu length:  [ 25.  19.  13.  17.  25.  15.  15.  19.]
+Best Solution:  1.2875370857
+Initialization Time:  1.28024888039
+Total Processing time:  19.7786240578
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.73411239  1.26171465  1.6107153   1.62419644  1.26171465  1.74804716
+  1.26171465  1.26171465]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.03556364  1.03749656  1.0669028   1.04187279  1.04859009  1.0538498
+  1.03992373  1.04502663]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.   6.  22.   7.  29.   7.   5.   6.]
+Tabu length:  [ 24.  25.  22.   9.  10.  12.  10.  19.]
+Best Solution:  1.03556364075
+Initialization Time:  1.69576406479
+Total Processing time:  20.9337420464
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.54446354  1.54446354  1.63289027  1.6688979   1.66590367  1.54446354
+  1.57897352  1.54446354]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.29118249  1.30148027  1.29118249  1.30411997  1.30148027  1.29118249
+  1.29118249  1.31208049]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  7.   6.   6.  17.  12.   7.   8.  24.]
+Tabu length:  [ 22.  17.  24.  12.  11.  17.  12.  19.]
+Best Solution:  1.29118248521
+Initialization Time:  2.60545301437
+Total Processing time:  28.0478520393
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56552268  1.46222401  1.65737784  1.46222401  1.46222401  1.65318056
+  1.46222401  1.70822472]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.34086163  1.3338442   1.3338442   1.3338442   1.38237507  1.3338442
+  1.34451433  1.36574281]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   9.   6.  15.  11.  21.   6.  13.]
+Tabu length:  [ 14.  23.  17.  18.  15.  12.   8.  12.]
+Best Solution:  1.33384420288
+Initialization Time:  2.69217896461
+Total Processing time:  25.4086859226
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.61578347  1.71027143  1.61578347  1.61578347  1.71028887  1.61578347
+  1.63897221  1.69620632]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26103812  1.26463092  1.26463092  1.26103812  1.26103812  1.28032821
+  1.27520638  1.26103812]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [  8.  12.   5.   6.   6.   9.  33.   8.]
+Tabu length:  [ 21.  15.   6.  13.  19.  18.  13.  21.]
+Best Solution:  1.26103812003
+Initialization Time:  1.63646793365
+Total Processing time:  15.8232839108
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.72403847  1.66516007  1.74078942  1.57451875  1.57451875  1.58128808
+  1.57451875  1.57451875]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27927585  1.2908534   1.26852576  1.29050115  1.26852576  1.27152025
+  1.26852576  1.26852576]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [  9.   5.   5.   7.  12.  11.  33.   5.]
+Tabu length:  [ 19.  22.  26.  11.  15.  12.  11.  15.]
+Best Solution:  1.26852575895
+Initialization Time:  3.92035984993
+Total Processing time:  23.4867069721
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.69966889  1.65253847  1.65253847  1.73974268  1.67635338  1.65253847
+  1.76745942  1.65253847]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.29411736  1.2848771   1.29072664  1.2848771   1.30145919  1.28598379
+  1.2848771   1.2848771 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 13.  32.   5.   5.   9.   5.   9.   9.]
+Tabu length:  [  9.  24.  14.  13.  13.  13.  26.   9.]
+Best Solution:  1.28487709509
+Initialization Time:  3.43007707596
+Total Processing time:  18.7831799984
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.68765341  1.58273393  1.72977236  1.58273393  1.58273393  1.60999903
+  1.6718181   1.58273393]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.45362229  1.47160671  1.48999238  1.47160671  1.45362229  1.45362229
+  1.45362229  1.47160671]
+Update Flags:  [ 0.  0.  1.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  7.  16.  13.   7.   5.   8.  24.   7.]
+Tabu length:  [ 10.  22.  16.  16.  23.   7.  24.  23.]
+Best Solution:  1.45362228873
+Initialization Time:  3.30057787895
+Total Processing time:  30.419770956
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6205429   1.67429557  1.47176764  1.47176764  1.66124481  1.65489837
+  1.47176764  1.47176764]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.31342256  1.32088852  1.31488501  1.31342256  1.31342256  1.32088852
+  1.31342256  1.31756152]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [  4.  36.   5.   3.  21.   6.   4.   8.]
+Tabu length:  [ 21.  20.  23.  19.  12.  25.  21.  26.]
+Best Solution:  1.31342255893
+Initialization Time:  2.98389697075
+Total Processing time:  18.2559139729
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.48921393  1.89517533  1.94730267  1.48921393  1.89608752  1.64983883
+  1.48921393  1.48921393]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.31767811  1.31767811  1.31767811  1.30839539  1.31767811  1.35010819
+  1.34721713  1.35048878]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.  11.   6.   6.   8.  38.   8.   5.]
+Tabu length:  [ 16.  21.  21.  25.   9.  16.  10.   8.]
+Best Solution:  1.30839538623
+Initialization Time:  1.92119288445
+Total Processing time:  18.9114539623
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.74843496  1.76933011  1.46348346  1.46348346  1.46348346  1.72398359
+  1.46898255  1.46348346]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27147816  1.34068357  1.27147816  1.27147816  1.36925942  1.27147816
+  1.35440711  1.34771306]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   5.   8.   8.  30.   4.  13.  13.]
+Tabu length:  [ 20.  15.  16.  26.  21.  13.  17.  13.]
+Best Solution:  1.27147816315
+Initialization Time:  2.5903840065
+Total Processing time:  16.2135131359
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.81990681  1.39866311  1.73266106  1.39866311  1.39866311  1.81042201
+  1.82560382  1.39866311]
+Initiating Phase II: Tabu Search
+
+Regions:  29
+New Solutions:  [ 1.24762355  1.25428755  1.23932043  1.2528178   1.27421642  1.24802473
+  1.24802473  1.24762355]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 11.  11.  10.  14.   6.  16.   6.  13.]
+Tabu length:  [ 12.  17.  21.  15.  24.  13.  14.  15.]
+Best Solution:  1.23932042686
+Initialization Time:  1.91469883919
+Total Processing time:  25.0619637966
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.62841076  1.62841076  1.71172156  1.64055145  1.62841076  1.69534515
+  1.62841076  1.72560422]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.28323961  1.33661612  1.3330097   1.28323961  1.36762703  1.33417463
+  1.28323961  1.3714809 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  1.  0.  0.]
+Iteration Counter:  [  4.   5.   7.  13.  17.  28.   5.   8.]
+Tabu length:  [  8.  12.   6.  13.  26.  15.  25.  15.]
+Best Solution:  1.28323960707
+Initialization Time:  2.87121796608
+Total Processing time:  18.440392971
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.88932686  1.32081631  1.89888867  1.32081631  1.76206378  1.32081631
+  1.64890291  1.32081631]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.19042703  1.18956079  1.19986124  1.22836392  1.21164365  1.18956079
+  1.18956079  1.18956079]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  6.  10.  15.  13.  25.   6.   6.   6.]
+Tabu length:  [ 26.  24.  25.  26.  23.  12.  24.  26.]
+Best Solution:  1.18956078904
+Initialization Time:  1.81834697723
+Total Processing time:  26.5291969776
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.80462775  1.80762671  1.73999955  1.74724724  1.73999955  1.73999955
+  1.73999955  1.78992607]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.52974946  1.52974946  1.54985882  1.52974946  1.57606205  1.52974946
+  1.54626855  1.57024964]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.  14.  35.  10.   6.   5.   6.   5.]
+Tabu length:  [ 20.  20.  11.  24.  10.  24.  12.  13.]
+Best Solution:  1.52974946179
+Initialization Time:  2.3534488678
+Total Processing time:  17.518242836
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.75883116  1.67919829  1.53176641  1.53176641  1.64061826  1.53176641
+  1.53176641  1.81915903]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3947681   1.38242497  1.41018692  1.39234102  1.39748459  1.43711422
+  1.38242497  1.38242497]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [ 14.   7.   6.  16.   4.   6.  30.   4.]
+Tabu length:  [ 16.   6.  20.   8.  10.   6.   9.  22.]
+Best Solution:  1.38242497239
+Initialization Time:  3.82969999313
+Total Processing time:  17.5023920536
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.78165878  1.75622467  1.46931264  1.46931264  1.73969973  1.51809809
+  1.46931264  1.46931264]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.21674715  1.25361171  1.21674715  1.22282864  1.21674715  1.21734485
+  1.21754949  1.21674715]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 26.  12.   5.   4.   6.   7.   5.  22.]
+Tabu length:  [ 11.  26.  17.  11.  22.  12.  13.   6.]
+Best Solution:  1.21674714829
+Initialization Time:  3.30186104774
+Total Processing time:  22.3699588776
+
+Solutions standardized, assigning enclaves
+[ 1.64902149  1.64726588  1.80937298  1.64726588  1.77744781  1.64726588
+  1.64726588  1.78368817]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.39334692  1.38836649  1.40600567  1.38836649  1.39351087  1.38180488
+  1.36419875  1.406142  ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   9.  37.  14.   5.   4.   7.   5.]
+Tabu length:  [ 24.  21.  22.  23.   7.  23.  16.  24.]
+Best Solution:  1.36419874787
+Initialization Time:  0.873978853226
+Total Processing time:  17.1352419853
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56666049  1.56666049  1.79647913  1.65180016  1.76635847  1.56666049
+  1.56666049  1.80493593]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.25178316  1.25178316  1.25178316  1.23705929  1.23705929  1.23705929
+  1.25501529  1.23705929]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 22.   7.   8.   6.   6.  26.   8.   4.]
+Tabu length:  [ 23.  23.  16.  13.  21.  16.  14.  16.]
+Best Solution:  1.23705929116
+Initialization Time:  3.02973294258
+Total Processing time:  21.5728068352
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.61963763  1.61963763  1.61963763  1.61963763  1.72803781  1.72295726
+  1.69690047  1.63153394]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3441126   1.33899796  1.3441126   1.33899796  1.3441126   1.33899796
+  1.3441126   1.33899796]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  5.   7.  31.   6.   7.  17.   5.   9.]
+Tabu length:  [ 15.  22.  10.   8.  18.  23.  16.  19.]
+Best Solution:  1.3389979592
+Initialization Time:  2.0050239563
+Total Processing time:  21.5638399124
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.54272021  1.88007683  1.54272021  1.82137403  1.54272021  1.85684774
+  1.54272021  1.89646762]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.31015429  1.33342312  1.32003872  1.37410859  1.36953675  1.33762919
+  1.38487691  1.32248695]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.  26.   8.   7.   7.  16.   6.  11.]
+Tabu length:  [ 19.  21.  17.  22.  24.  23.  10.  21.]
+Best Solution:  1.3101542896
+Initialization Time:  2.11963796616
+Total Processing time:  28.2464139462
+
+Solutions standardized, assigning enclaves
+[ 1.66704703  1.58720825  1.58720825  1.69665409  1.58720825  1.61853225
+  1.71267406  1.58720825]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.39538919  1.42714841  1.35392399  1.46880709  1.37604027  1.40274867
+  1.37669635  1.42714841]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 17.   5.   7.   6.   7.   6.  16.  23.]
+Tabu length:  [  6.  16.  26.  23.  12.  14.  14.  22.]
+Best Solution:  1.35392399124
+Initialization Time:  0.855324983597
+Total Processing time:  15.9441800117
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.72658523  1.81013069  1.66645768  1.66645768  1.66645768  1.66645768
+  1.78336996  1.76052158]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.46047159  1.42513652  1.42461816  1.42250712  1.41569457  1.46359834
+  1.45379076  1.46310163]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  4.   4.   9.  23.   5.  29.   5.   8.]
+Tabu length:  [ 22.  18.  24.  16.  14.  21.  11.   7.]
+Best Solution:  1.41569457022
+Initialization Time:  1.53615903854
+Total Processing time:  20.0974919796
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.41715259  1.41715259  1.70209535  1.41715259  1.78200261  1.41715259
+  1.69843467  1.67986056]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.143176    1.14069775  1.15626912  1.1674255   1.143176    1.15071649
+  1.143176    1.143176  ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.  13.  33.   4.   5.  15.   8.   4.]
+Tabu length:  [ 21.   8.   8.  16.  23.  13.  11.  18.]
+Best Solution:  1.14069774947
+Initialization Time:  1.74816298485
+Total Processing time:  18.6572010517
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.5121805   1.72515929  1.77483565  1.5121805   1.79256425  1.64159056
+  1.5121805   1.5121805 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.41832273  1.39305033  1.39305033  1.41465744  1.46061593  1.39305033
+  1.41161324  1.39305033]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.   6.   8.  12.  16.  28.   5.   7.]
+Tabu length:  [  6.  16.  14.  14.  17.  24.  22.  10.]
+Best Solution:  1.39305032587
+Initialization Time:  2.83435106277
+Total Processing time:  22.4037690163
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.65879217  1.76800227  1.57193141  1.69781453  1.57193141  1.57193141
+  1.57193141  1.58324493]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.24661804  1.28137244  1.24661804  1.3777613   1.2710244   1.26591371
+  1.24661804  1.35657899]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 25.   6.   4.   6.  12.  14.  13.   7.]
+Tabu length:  [ 25.  20.  20.   9.  15.  20.  10.  20.]
+Best Solution:  1.24661803751
+Initialization Time:  3.4959859848
+Total Processing time:  22.4812750816
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.80108928  1.6357      1.64426215  1.6357      1.74495141  1.79632348
+  1.6357      1.6357    ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.25929268  1.31033911  1.29879465  1.25929268  1.25929268  1.25929268
+  1.31033911  1.31173807]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.  21.   5.   6.   4.   6.  10.  29.]
+Tabu length:  [ 26.  11.  25.  20.   7.  22.  17.  12.]
+Best Solution:  1.25929267967
+Initialization Time:  1.77439308167
+Total Processing time:  18.5898721218
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.54256368  1.54256368  1.7648405   1.78188866  1.54256368  1.74609509
+  1.54256368  1.76334315]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.34205006  1.34205006  1.34205006  1.34527383  1.34527383  1.36192029
+  1.34205006  1.34527383]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [  7.   9.  13.  12.  14.   8.   9.  15.]
+Tabu length:  [ 19.  15.  11.  20.  24.  25.   7.  25.]
+Best Solution:  1.3420500583
+Initialization Time:  3.13294696808
+Total Processing time:  32.6598348618
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64602501  1.78198439  1.45392111  1.77548857  1.45392111  1.45392111
+  1.83909892  1.45392111]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27979852  1.26892449  1.26010228  1.26010228  1.26010228  1.29332644
+  1.26892449  1.26010228]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  1.]
+Iteration Counter:  [  5.  36.   5.   6.   8.   6.  16.   5.]
+Tabu length:  [ 22.  25.  20.  12.  13.   7.   6.   9.]
+Best Solution:  1.26010228171
+Initialization Time:  2.97825908661
+Total Processing time:  25.9593911171
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.65150912  1.79721923  1.62774141  1.62774141  1.62774141  1.63827118
+  1.69371744  1.62774141]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.37244029  1.43919831  1.37721535  1.37721535  1.41214162  1.37721535
+  1.4144871   1.36688542]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  9.  12.   7.  13.   8.   6.  21.  11.]
+Tabu length:  [ 11.  10.  11.  12.  19.  20.  18.  10.]
+Best Solution:  1.36688541638
+Initialization Time:  1.98857212067
+Total Processing time:  27.7737910748
+
+IFS with vaired p generated.  Standardizing to p=33.
+[ 1.7503154   1.50296029  1.50296029  1.64937145  1.62397685  1.50296029
+  1.50296029  1.69646712]
+Initiating Phase II: Tabu Search
+
+Regions:  33
+New Solutions:  [ 1.27130684  1.26253595  1.32889021  1.26867598  1.29259007  1.27130684
+  1.26253595  1.26867598]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 11.  18.   9.   9.   9.   6.  10.  15.]
+Tabu length:  [ 25.  23.  25.  22.  13.  12.  20.   6.]
+Best Solution:  1.26253594958
+Initialization Time:  77.4618990421
+Total Processing time:  101.904839039
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.66280106  1.64071449  1.64071449  1.85108315  1.64071449  1.84580387
+  1.64071449  1.78229693]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.44448861  1.44394483  1.40134374  1.37997796  1.42480326  1.40822038
+  1.40134374  1.40134374]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 22.   6.   8.  15.  19.   7.   5.   5.]
+Tabu length:  [ 18.  22.  25.  16.  26.  18.  16.  22.]
+Best Solution:  1.37997795822
+Initialization Time:  3.20332288742
+Total Processing time:  27.0757129192
+
+Solutions standardized, assigning enclaves
+[ 1.48920242  1.71429531  1.80019808  1.6067578   1.48920242  1.64067663
+  1.48920242  1.48920242]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.33086914  1.28576084  1.34399465  1.28576084  1.29888634  1.28576084
+  1.33969661  1.33086914]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.  12.  11.  13.  10.   6.  22.   5.]
+Tabu length:  [  6.  26.  18.  11.  13.  22.  23.  25.]
+Best Solution:  1.28576083779
+Initialization Time:  0.855522871017
+Total Processing time:  25.3172330856
+
+Solutions standardized, assigning enclaves
+[ 1.43217082  1.40385941  1.51212916  1.44422254  1.40385941  1.62424012
+  1.40385941  1.40385941]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.13067785  1.10239046  1.09206756  1.10239046  1.09873942  1.14109673
+  1.10239046  1.13574319]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.  38.   7.   8.  12.   5.   7.   5.]
+Tabu length:  [ 13.   6.  14.  17.  18.  17.  22.   7.]
+Best Solution:  1.09206756036
+Initialization Time:  0.858993053436
+Total Processing time:  19.6323580742
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.52588129  1.72462103  1.66503734  1.68100164  1.52588129  1.52588129
+  1.52588129  1.59551909]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.1388931   1.16171771  1.15200808  1.1388931   1.1388931   1.1388931
+  1.1490607   1.16555201]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   7.   9.  24.   6.  17.   7.  11.]
+Tabu length:  [  8.   7.   7.  24.  11.  16.  21.  20.]
+Best Solution:  1.1388931049
+Initialization Time:  2.11919999123
+Total Processing time:  26.0073890686
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.59922992  1.68459803  1.63559518  1.76710233  1.45832242  1.45832242
+  1.45832242  1.45832242]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27010871  1.29436949  1.29436949  1.27010871  1.29781908  1.30230832
+  1.27010871  1.27010871]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  9.   8.   6.   5.  13.  20.   4.  22.]
+Tabu length:  [ 25.  22.  15.  23.  25.  13.  11.  15.]
+Best Solution:  1.27010871493
+Initialization Time:  2.1116528511
+Total Processing time:  20.3472678661
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.86082363  1.5750042   1.5750042   1.68172776  1.79602995  1.5750042
+  1.5750042   1.70556338]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.24174018  1.25658507  1.24062216  1.26171077  1.24174018  1.24062216
+  1.19975206  1.24062216]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.   6.   8.   9.  25.  16.  10.   8.]
+Tabu length:  [ 12.  16.  22.  17.  22.  12.  17.  17.]
+Best Solution:  1.19975206053
+Initialization Time:  2.2325527668
+Total Processing time:  19.7773168087
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.3758352   1.65529188  1.66252742  1.3758352   1.60106758  1.61894143
+  1.3758352   1.3758352 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.16455817  1.14600936  1.14600936  1.14600936  1.14798868  1.18451587
+  1.14457234  1.14600936]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   4.   4.   5.  39.   7.   6.  15.]
+Tabu length:  [  7.  18.  16.  16.  17.  14.  24.  19.]
+Best Solution:  1.14457233633
+Initialization Time:  1.41952085495
+Total Processing time:  18.4642469883
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.81870385  1.48306561  1.59085593  1.48306561  1.7965929   1.48306561
+  1.48306561  1.69412815]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.10347539  1.13155795  1.10347539  1.10347539  1.13155795  1.10347539
+  1.17205651  1.13155795]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [  9.   7.   6.   5.  16.  34.   5.   5.]
+Tabu length:  [ 22.  22.   9.   7.  24.  19.   9.  16.]
+Best Solution:  1.10347538968
+Initialization Time:  2.98283195496
+Total Processing time:  17.3403320312
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.71217063  1.73362775  1.86923196  1.71217063  1.71217063  1.78131786
+  1.73276205  1.71217063]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.25403008  1.25403008  1.2516756   1.23624915  1.2516756   1.25403008
+  1.2516756   1.2516756 ]
+Update Flags:  [ 0.  0.  1.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 21.   8.  18.   9.   7.   8.  10.   6.]
+Tabu length:  [ 13.  22.  14.  25.  24.  14.   8.  23.]
+Best Solution:  1.23624915221
+Initialization Time:  2.2582950592
+Total Processing time:  28.4913651943
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.80026585  1.75722805  1.7120555   1.80907537  1.7120555   1.72136136
+  1.7120555   1.7120555 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.45845252  1.45845252  1.45845252  1.46232496  1.46232496  1.46537298
+  1.45845252  1.46232496]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [ 39.   5.  11.   4.   4.   4.   5.  15.]
+Tabu length:  [ 14.  25.  22.  20.  25.  15.   6.  13.]
+Best Solution:  1.45845252153
+Initialization Time:  2.26020693779
+Total Processing time:  17.8593928814
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.53740722  1.44414024  1.61183994  1.52665933  1.44414024  1.44414024
+  1.73624391  1.44414024]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27773101  1.26238741  1.27565096  1.27565096  1.25223229  1.27358919
+  1.24478611  1.23933406]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 16.  16.   4.  15.   6.  12.  14.   4.]
+Tabu length:  [ 15.   9.  19.  15.  17.   6.  19.  26.]
+Best Solution:  1.23933405714
+Initialization Time:  2.42900204659
+Total Processing time:  20.470386982
+
+Solutions standardized, assigning enclaves
+[ 1.48839586  1.56939113  1.63026231  1.48839586  1.55059367  1.7879324
+  1.48839586  1.48839586]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.24857084  1.21610532  1.21610532  1.2310391   1.21610532  1.21610532
+  1.2392892   1.2392892 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 19.  28.   6.  11.   5.   3.   9.   6.]
+Tabu length:  [ 14.  18.  22.  19.   6.  24.  22.  20.]
+Best Solution:  1.21610532398
+Initialization Time:  0.856215953827
+Total Processing time:  14.5139670372
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.59908221  1.5407884   1.5407884   1.5407884   1.66183303  1.68828765
+  1.6917099   1.5407884 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.2832365   1.29103792  1.2832365   1.32069151  1.29103792  1.2832365
+  1.2832365   1.32069151]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 11.   5.  17.   8.  10.  20.   8.   8.]
+Tabu length:  [ 17.  14.  15.  12.   9.  14.  20.  25.]
+Best Solution:  1.28323650346
+Initialization Time:  2.28704595566
+Total Processing time:  23.4855821133
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.465154    1.80775397  1.465154    1.465154    1.78279997  1.465154
+  1.72398839  1.82017333]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.21436894  1.18011692  1.2169118   1.16453017  1.16343597  1.15427399
+  1.20819694  1.19148107]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 32.  13.   4.  13.   9.   5.   6.   5.]
+Tabu length:  [ 16.  14.  19.  15.  15.  12.   8.  21.]
+Best Solution:  1.15427398671
+Initialization Time:  2.54681396484
+Total Processing time:  22.4680089951
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.571854    1.56009133  1.56009133  1.56009133  1.76183938  1.60680154
+  1.56009133  1.75986131]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26657797  1.27930556  1.26516363  1.26867403  1.26516363  1.26516363
+  1.27858169  1.26516363]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  1.]
+Iteration Counter:  [  7.   7.   7.  37.   6.   6.   7.  10.]
+Tabu length:  [  8.   9.  11.  21.  25.   9.  11.  26.]
+Best Solution:  1.26516362915
+Initialization Time:  1.42916107178
+Total Processing time:  30.0590729713
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.9263165   1.74818756  1.74818756  1.74818756  1.77740284  1.80226107
+  1.91387852  1.74818756]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.43920038  1.41480956  1.40946253  1.46926346  1.42528742  1.4347344
+  1.53938886  1.39856379]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.  28.   6.  10.  14.   7.  10.   5.]
+Tabu length:  [  6.  15.  20.  10.  13.   9.  18.  15.]
+Best Solution:  1.39856379217
+Initialization Time:  3.60550308228
+Total Processing time:  23.5743770599
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.61501211  1.61501211  1.61501211  1.70932426  1.62059017  1.75476387
+  1.74818022  1.61501211]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.35800454  1.34256935  1.35441255  1.34660803  1.34256935  1.34256935
+  1.35800454  1.34256935]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [ 12.   5.   4.   8.  10.  33.   6.   9.]
+Tabu length:  [  8.   8.  26.  24.   9.   7.  26.   8.]
+Best Solution:  1.34256935299
+Initialization Time:  1.12684488297
+Total Processing time:  17.539760828
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64211112  1.80448617  1.73439164  1.73480181  1.64211112  1.64211112
+  1.6750491   1.64211112]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.34641306  1.34641306  1.35149548  1.34829324  1.34641306  1.35130039
+  1.34641306  1.35130039]
+Update Flags:  [ 0.  1.  1.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  9.   4.  18.   7.   7.  15.  21.   6.]
+Tabu length:  [  9.   7.   6.   7.   9.  22.  13.  12.]
+Best Solution:  1.34641305862
+Initialization Time:  1.99768304825
+Total Processing time:  15.4788210392
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.92043683  1.83232591  1.65618894  1.65618894  1.65618894  1.83169587
+  1.68600153  1.65618894]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3899204   1.40591738  1.40405898  1.38891738  1.38891738  1.38891738
+  1.4019388   1.40915186]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.  12.   8.   8.  15.  11.   9.  17.]
+Tabu length:  [ 17.  24.  22.   8.  22.  16.  25.  10.]
+Best Solution:  1.38891737784
+Initialization Time:  1.36956810951
+Total Processing time:  33.6874411106
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64461337  1.60404876  1.54404389  1.61959063  1.59057146  1.54404389
+  1.54404389  1.54404389]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.46198335  1.38259944  1.48054736  1.45643976  1.38259944  1.38259944
+  1.38259944  1.42691191]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [  5.  12.   4.  36.   9.   5.   5.  11.]
+Tabu length:  [ 18.  22.  13.   8.  22.  26.  22.  26.]
+Best Solution:  1.38259944069
+Initialization Time:  3.11061120033
+Total Processing time:  18.2763490677
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.74340017  1.57355111  1.57355111  1.57355111  1.65416245  1.60937655
+  1.57355111  1.69492818]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.42602361  1.44540212  1.47185538  1.47185538  1.46401303  1.42602361
+  1.42602361  1.42602361]
+Update Flags:  [ 0.  1.  0.  1.  1.  0.  1.  0.]
+Iteration Counter:  [  8.   5.   5.   7.  14.   6.  35.   7.]
+Tabu length:  [ 18.  21.  22.  24.   8.  25.  12.   8.]
+Best Solution:  1.42602360956
+Initialization Time:  1.69739985466
+Total Processing time:  23.1391170025
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.51335075  1.51335075  1.51335075  1.57770445  1.51335075  1.79241496
+  1.62835458  1.67074261]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3029072   1.32231631  1.32657512  1.3029072   1.32231631  1.3029072
+  1.32677135  1.3029072 ]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  1.]
+Iteration Counter:  [  6.   5.   7.  24.   7.   5.  25.   8.]
+Tabu length:  [ 18.   9.  20.   8.  12.  19.  26.  24.]
+Best Solution:  1.30290719842
+Initialization Time:  2.2987909317
+Total Processing time:  24.0159831047
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.76970052  1.62253168  1.70284756  1.89286528  1.62253168  1.62253168
+  1.62253168  1.87506655]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.35727415  1.35637609  1.35637609  1.35727415  1.35727415  1.35727415
+  1.35637609  1.35637609]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.  13.   4.  12.   4.  19.   5.  25.]
+Tabu length:  [ 11.  22.   7.   6.  18.  16.  25.  19.]
+Best Solution:  1.35637609334
+Initialization Time:  1.21125602722
+Total Processing time:  18.6823489666
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.58962992  1.4338691   1.69688185  1.59640429  1.4338691   1.4338691
+  1.4338691   1.65394801]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.32681308  1.32681308  1.27440394  1.27440394  1.32681308  1.27440394
+  1.27440394  1.32412852]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  4.  15.  38.   5.   6.   9.   5.   5.]
+Tabu length:  [ 26.   6.  23.  19.  21.  15.  20.  23.]
+Best Solution:  1.27440393909
+Initialization Time:  1.12388706207
+Total Processing time:  16.6398780346
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.499557    1.57999237  1.499557    1.50385678  1.499557    1.55712253
+  1.55817615  1.499557  ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.23618544  1.32040533  1.26241435  1.23618544  1.28984777  1.23618544
+  1.27242236  1.23618544]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 12.  10.  13.  15.   7.  10.   7.  13.]
+Tabu length:  [ 17.   8.   6.  25.  15.  22.  12.  24.]
+Best Solution:  1.23618544143
+Initialization Time:  2.0885488987
+Total Processing time:  27.6646668911
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.34593657  1.34593657  1.71929629  1.77617056  1.34593657  1.49710119
+  1.42367925  1.34593657]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.18081953  1.18081953  1.18081953  1.14308122  1.18081953  1.20155368
+  1.15224252  1.1831662 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 23.   5.   4.   9.  18.  15.   9.   4.]
+Tabu length:  [ 21.   8.  20.  11.  25.   9.  10.   7.]
+Best Solution:  1.14308121512
+Initialization Time:  1.22182798386
+Total Processing time:  19.9887821674
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.55751929  1.68208037  1.75750705  1.55751929  1.55751929  1.55751929
+  1.72410735  1.60597728]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.37360204  1.36615289  1.36615289  1.3692872   1.3692872   1.37360204
+  1.36615289  1.36615289]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  1.]
+Iteration Counter:  [  6.  15.  21.   5.   6.   4.  20.  10.]
+Tabu length:  [ 19.  15.  12.  25.  16.  12.  21.  26.]
+Best Solution:  1.36615289026
+Initialization Time:  1.82872605324
+Total Processing time:  17.9317250252
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.46470041  1.53751312  1.56176904  1.78585975  1.46470041  1.78710921
+  1.46470041  1.46470041]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.24868582  1.24868582  1.2548852   1.25913029  1.24868582  1.24868582
+  1.26803253  1.2548852 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 14.   6.  17.   9.   8.  20.   7.   6.]
+Tabu length:  [ 26.  15.  26.  19.  22.  16.  19.   6.]
+Best Solution:  1.24868581946
+Initialization Time:  1.48416900635
+Total Processing time:  27.9001760483
+
+Solutions standardized, assigning enclaves
+[ 1.62461282  1.73239419  1.49857522  1.59600103  1.66884895  1.49857522
+  1.49857522  1.49857522]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.22433925  1.22433925  1.23170717  1.23170717  1.23420389  1.22433925
+  1.23420389  1.22433925]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 17.  14.   8.   5.  18.  13.   8.   4.]
+Tabu length:  [ 15.   9.   9.  15.  19.  16.  14.  21.]
+Best Solution:  1.22433925082
+Initialization Time:  0.864889144897
+Total Processing time:  18.8594400883
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.45182551  1.45182551  1.54503181  1.78256192  1.45182551  1.45182551
+  1.71986026  1.6924079 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3715565   1.32125513  1.32125513  1.37244213  1.32125513  1.36889177
+  1.32125513  1.36064685]
+Update Flags:  [ 0.  1.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 17.  12.   6.  17.  14.  10.   6.   5.]
+Tabu length:  [ 24.  12.  17.   9.  22.  20.  26.  13.]
+Best Solution:  1.32125512791
+Initialization Time:  1.60047292709
+Total Processing time:  22.1478309631
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.43683827  1.77430457  1.43683827  1.43683827  1.49010708  1.62874201
+  1.43683827  1.61730337]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.31637545  1.33187576  1.3144689   1.34272962  1.3144689   1.32087057
+  1.3144689   1.3144689 ]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  1.]
+Iteration Counter:  [ 14.   8.   5.   5.  36.  10.   5.   4.]
+Tabu length:  [ 11.  22.  14.  19.  18.  25.  12.  16.]
+Best Solution:  1.31446889743
+Initialization Time:  2.44990587234
+Total Processing time:  20.4874680042
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.65424575  1.80476081  1.79741265  1.46525008  1.78799369  1.46525008
+  1.46525008  1.46525008]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27444741  1.27876289  1.27444741  1.27444741  1.29976096  1.27968914
+  1.27444741  1.26916511]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  9.   8.  11.  13.   8.  11.  10.  17.]
+Tabu length:  [  6.  14.  11.  17.  25.  19.   8.  16.]
+Best Solution:  1.26916511208
+Initialization Time:  1.84839296341
+Total Processing time:  35.3307650089
+
+Solutions standardized, assigning enclaves
+[ 1.35766402  1.75725809  1.73314476  1.35766402  1.54734912  1.35766402
+  1.67453045  1.35766402]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.09799691  1.09799691  1.08868023  1.08868023  1.09799691  1.09799691
+  1.08868023  1.08868023]
+Update Flags:  [ 0.  0.  1.  0.  0.  1.  1.  0.]
+Iteration Counter:  [  3.  30.  15.   4.   7.  10.  14.   4.]
+Tabu length:  [ 18.  16.  19.  21.  26.  19.  17.  12.]
+Best Solution:  1.08868022715
+Initialization Time:  0.85176897049
+Total Processing time:  14.5554969311
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.47811923  1.63322371  1.47811923  1.47811923  1.47811923  1.75790981
+  1.78488731  1.83520071]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.34910342  1.34910342  1.37488676  1.39697162  1.3650057   1.40694771
+  1.35454228  1.38303454]
+Update Flags:  [ 0.  0.  1.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 23.   5.   3.   5.   5.   4.  35.   7.]
+Tabu length:  [  9.   7.  22.  21.  10.  17.  25.  26.]
+Best Solution:  1.34910341594
+Initialization Time:  1.93296098709
+Total Processing time:  16.2711319923
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.73244257  1.69441928  1.70832853  1.69441928  1.69441928  1.78486991
+  1.76007936  1.69441928]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.29553138  1.29553138  1.32495391  1.29553138  1.34307522  1.35631129
+  1.33621386  1.29553138]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 12.   6.  10.   5.   4.  32.   4.  14.]
+Tabu length:  [ 18.  22.  19.  25.  26.  23.  13.  19.]
+Best Solution:  1.29553138411
+Initialization Time:  1.61765599251
+Total Processing time:  17.4809749126
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.5842631   1.61504116  1.56857232  1.53247106  1.79248238  1.53247106
+  1.53247106  1.53247106]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26977193  1.26977193  1.27184459  1.26977193  1.27184459  1.27184459
+  1.26977193  1.28491031]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  1.]
+Iteration Counter:  [ 10.   7.  13.  12.   8.  10.  19.   8.]
+Tabu length:  [ 12.   9.  23.  10.  10.  22.   9.  21.]
+Best Solution:  1.26977193343
+Initialization Time:  1.56780481339
+Total Processing time:  32.40899086
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64887385  1.75475259  1.64887385  1.64887385  1.64887385  1.68099275
+  1.80410269  1.79027745]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.51439908  1.50535231  1.52759002  1.52483077  1.50772015  1.5090824
+  1.52793375  1.50772015]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 10.   5.   4.  17.  11.   8.  21.  11.]
+Tabu length:  [ 24.  24.  17.  22.  13.  24.   9.  16.]
+Best Solution:  1.50535231404
+Initialization Time:  1.9961180687
+Total Processing time:  17.0411279202
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.40750571  1.80125068  1.40750571  1.65792052  1.40750571  1.77528273
+  1.72584546  1.40750571]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27002602  1.2897817   1.29018605  1.26335637  1.27002602  1.29018605
+  1.28226221  1.27002602]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 44.   7.   5.   5.   7.   7.   7.   5.]
+Tabu length:  [ 12.   8.   6.  12.  26.  21.  19.  11.]
+Best Solution:  1.26335636695
+Initialization Time:  3.18351697922
+Total Processing time:  25.6499660015
+
+IFS with vaired p generated.  Standardizing to p=33.
+[ 1.66039406  1.55984928  1.55984928  1.55984928  1.63404317  1.59258902
+  1.77729106  1.55984928]
+Initiating Phase II: Tabu Search
+
+Regions:  33
+New Solutions:  [ 1.25702123  1.26378517  1.26378517  1.25702123  1.25702123  1.25702123
+  1.25702123  1.26378517]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [ 22.   8.   5.   5.  13.   9.   9.  16.]
+Tabu length:  [  7.  25.  22.  23.  21.  10.  22.  20.]
+Best Solution:  1.25702123264
+Initialization Time:  78.9755659103
+Total Processing time:  99.8528628349
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.55687662  1.56124688  1.55687662  1.74591524  1.72753917  1.55687662
+  1.68406359  1.55687662]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.28472582  1.35730244  1.33177473  1.33700423  1.27833736  1.27833736
+  1.344018    1.32729703]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  5.   5.   5.  22.   6.  11.  10.  23.]
+Tabu length:  [ 25.  17.  14.  19.  17.  10.  12.  25.]
+Best Solution:  1.27833735875
+Initialization Time:  1.39634084702
+Total Processing time:  16.4133679867
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.51107242  1.80147866  1.57619979  1.51107242  1.77022637  1.51107242
+  1.81231003  1.51107242]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.42431366  1.38536418  1.38536418  1.39169549  1.38536418  1.4184144
+  1.38536418  1.42644275]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  1.]
+Iteration Counter:  [  7.   7.  22.  18.  11.   8.   7.   7.]
+Tabu length:  [ 26.  25.  16.  24.   9.  13.  26.   8.]
+Best Solution:  1.38536417695
+Initialization Time:  1.75571298599
+Total Processing time:  30.2275578976
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.53535263  1.53535263  1.53535263  1.76312479  1.69208512  1.55873507
+  1.68439954  1.53535263]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30986929  1.32541462  1.30986929  1.30986929  1.32548915  1.30986929
+  1.3202091   1.32548915]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 39.   8.  15.   4.   5.   7.   4.   5.]
+Tabu length:  [ 14.  16.  16.  16.  15.  13.  26.   8.]
+Best Solution:  1.30986928867
+Initialization Time:  1.80004501343
+Total Processing time:  17.8466498852
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.62941983  1.62941983  1.66425768  1.74565409  1.65260744  1.62941983
+  1.62941983  1.70183386]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30471871  1.28070162  1.28070162  1.28070162  1.30471871  1.30471871
+  1.31127819  1.28070162]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.  17.  10.  25.   6.   8.   6.   9.]
+Tabu length:  [ 10.   7.  16.  24.   7.  10.   6.   8.]
+Best Solution:  1.28070161847
+Initialization Time:  1.84295511246
+Total Processing time:  27.0460920334
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.47061616  1.47061616  1.55511451  1.47061616  1.65941256  1.47061616
+  1.55131314  1.48578394]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26122383  1.26181048  1.26122383  1.26181048  1.27542177  1.26122383
+  1.26122383  1.27316497]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 13.   6.   7.  12.   5.  19.  11.  14.]
+Tabu length:  [ 15.  12.   6.  19.  14.   6.  12.  11.]
+Best Solution:  1.26122383429
+Initialization Time:  2.70200395584
+Total Processing time:  23.9804329872
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6015046   1.43798276  1.20914184  1.67996145  1.20914184  1.20914184
+  1.68217951  1.20914184]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.06449431  1.07151607  1.07157749  1.06449431  1.06884322  1.07183746
+  1.06449431  1.06449431]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 13.   9.   6.   5.   6.  38.   5.   5.]
+Tabu length:  [ 10.  14.  20.  11.  25.  15.  13.   6.]
+Best Solution:  1.0644943122
+Initialization Time:  2.5645430088
+Total Processing time:  25.9064691067
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.60786164  1.6122629   1.70440603  1.60786164  1.60786164  1.60786164
+  1.81121366  1.6849237 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27821652  1.27821652  1.3230446   1.29384903  1.27821652  1.27821652
+  1.31106941  1.29019171]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.  11.   8.   9.   8.  11.  26.   8.]
+Tabu length:  [ 10.  19.  21.  19.  24.  25.  18.  26.]
+Best Solution:  1.27821651722
+Initialization Time:  2.48778891563
+Total Processing time:  33.2424960136
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.52540634  1.65883049  1.52540634  1.5838736   1.52540634  1.66791097
+  1.71049492  1.52540634]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.3489686   1.24110772  1.26677927  1.27555677  1.25659404  1.26465136
+  1.25555158  1.27825275]
+Update Flags:  [ 0.  0.  1.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.   6.  36.   5.   6.  12.  12.   4.]
+Tabu length:  [ 16.  11.   7.  20.  26.  14.  23.  26.]
+Best Solution:  1.2411077194
+Initialization Time:  1.75083208084
+Total Processing time:  22.6294150352
+
+Solutions standardized, assigning enclaves
+[ 1.51750568  1.2293422   1.2293422   1.57551522  1.2293422   1.49343024
+  1.2293422   1.50741581]
+Initiating Phase II: Tabu Search
+
+Regions:  28
+New Solutions:  [ 1.09382028  1.09558471  1.09382028  1.09382028  1.1112282   1.12170595
+  1.09382028  1.09558471]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 18.   8.   8.  15.   9.   8.  12.   9.]
+Tabu length:  [  7.  13.  17.  13.  12.  21.  11.  26.]
+Best Solution:  1.0938202798
+Initialization Time:  0.849957942963
+Total Processing time:  34.5375919342
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.6937685   1.61481543  1.61481543  1.79732067  1.61481543  1.61481543
+  1.71314459  1.79989135]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26228056  1.27347173  1.26228056  1.29295638  1.27347173  1.27347173
+  1.26228056  1.26228056]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.  23.   4.   4.   6.  15.  22.   5.]
+Tabu length:  [ 23.  17.  22.  13.  16.  18.  20.   7.]
+Best Solution:  1.26228055784
+Initialization Time:  2.35262703896
+Total Processing time:  18.349709034
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56846997  1.6838648   1.56846997  1.5925993   1.56846997  1.56846997
+  1.67273414  1.70999371]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.44578088  1.44706962  1.44433535  1.48754334  1.45911593  1.44895249
+  1.44706962  1.4721042 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 29.   8.   3.   3.   3.   4.  23.  14.]
+Tabu length:  [ 16.  18.  26.  18.  17.  16.  26.  18.]
+Best Solution:  1.44433534877
+Initialization Time:  3.43472790718
+Total Processing time:  18.8038949966
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.39572423  1.78045503  1.39572423  1.39572423  1.78600833  1.39572423
+  1.54099798  1.8045927 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.31702152  1.31194387  1.28875999  1.28511672  1.28511672  1.29067797
+  1.2935559   1.28511672]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  4.   3.  28.  19.   5.   6.  19.   3.]
+Tabu length:  [  9.  14.  23.  15.   9.  19.  16.   6.]
+Best Solution:  1.28511672327
+Initialization Time:  1.81127095222
+Total Processing time:  15.1130459309
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.42697471  1.42697471  1.43246563  1.70853711  1.42697471  1.42697471
+  1.46971183  1.57235563]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.17246793  1.13996586  1.18000156  1.21377584  1.16632757  1.13996586
+  1.13084265  1.15174443]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.  17.  14.   8.  12.  15.   6.   7.]
+Tabu length:  [ 18.  20.  26.  15.   9.   7.  19.  13.]
+Best Solution:  1.13084265357
+Initialization Time:  1.56583499908
+Total Processing time:  23.0714178085
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.7709814   1.58002118  1.69821862  1.55176136  1.71822351  1.55176136
+  1.55176136  1.55176136]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.43317427  1.38313533  1.39980769  1.367901    1.40966764  1.34816938
+  1.42011543  1.36566949]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 15.  13.   7.  13.   7.   7.  16.   9.]
+Tabu length:  [  6.   8.  24.  19.  25.  13.  13.  23.]
+Best Solution:  1.34816938242
+Initialization Time:  2.52579307556
+Total Processing time:  27.3663830757
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.57126817  1.48072971  1.62459766  1.48072971  1.48072971  1.61233783
+  1.64046966  1.48072971]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.37948424  1.37948424  1.39800412  1.38956594  1.37948424  1.38956594
+  1.39588195  1.37948424]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  1.]
+Iteration Counter:  [ 34.  13.   7.  14.   5.   4.   3.   7.]
+Tabu length:  [ 20.  22.  20.  20.  20.  10.  18.  13.]
+Best Solution:  1.37948423591
+Initialization Time:  2.40199613571
+Total Processing time:  16.0101010799
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56305156  1.60570329  1.60074103  1.56305156  1.60209624  1.56305156
+  1.68761354  1.56305156]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.27627258  1.30550652  1.27627258  1.27627258  1.27627258  1.30550652
+  1.32320056  1.33693706]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  6.  12.   6.   5.   8.  38.   6.   6.]
+Tabu length:  [  9.  12.  25.  17.  22.  11.  17.  11.]
+Best Solution:  1.27627258209
+Initialization Time:  1.95323014259
+Total Processing time:  20.7859261036
+
+Solutions standardized, assigning enclaves
+[ 1.46763976  1.46763976  1.71168905  1.56824022  1.46763976  1.62694333
+  1.46763976  1.6476717 ]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.20759949  1.24672305  1.24672305  1.26590954  1.27490652  1.25035957
+  1.24704704  1.27490652]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  4.   8.   4.   6.   5.  22.  30.   8.]
+Tabu length:  [ 24.  24.   7.  21.  18.  26.   6.   6.]
+Best Solution:  1.20759948737
+Initialization Time:  0.883342027664
+Total Processing time:  16.8189208508
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.48101826  1.56780393  1.67444451  1.48101826  1.68064582  1.71000469
+  1.48101826  1.48101826]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.16000955  1.14608193  1.14608193  1.14608193  1.16672954  1.16280772
+  1.16973078  1.14608193]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [ 17.   8.  15.   9.   8.  11.   8.  11.]
+Tabu length:  [  8.  21.  26.  25.  14.  10.   6.  18.]
+Best Solution:  1.14608192644
+Initialization Time:  2.34180998802
+Total Processing time:  36.9879741669
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.32569     1.55350721  1.64690038  1.32569     1.82835735  1.32569
+  1.71898159  1.32569   ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.15924131  1.15942216  1.14299274  1.14299274  1.14299274  1.16185309
+  1.14836983  1.14299274]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  7.   6.  31.   5.   5.   5.  22.   6.]
+Tabu length:  [  6.  17.  12.   7.  16.  22.  14.  16.]
+Best Solution:  1.14299273909
+Initialization Time:  2.91981196404
+Total Processing time:  22.1453340054
+
+IFS with vaired p generated.  Standardizing to p=33.
+[ 1.83149873  1.78671755  1.84156377  1.66542536  1.64288334  1.64288334
+  1.64288334  1.64288334]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.26161278  1.26161278  1.26269556  1.25042851  1.25042851  1.25042851
+  1.25042851  1.26161278]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 31.  21.   4.   4.  10.   8.   4.   5.]
+Tabu length:  [ 26.   8.  14.  26.  24.  17.  22.  24.]
+Best Solution:  1.25042850686
+Initialization Time:  77.8575239182
+Total Processing time:  93.35440588
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.64638305  1.75863996  1.56069225  1.56069225  1.56069225  1.76908988
+  1.56069225  1.6992275 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.5307312   1.47842246  1.52055239  1.47842246  1.49158422  1.47842246
+  1.4960506   1.47842246]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 22.  24.   6.   4.   7.  15.   3.   6.]
+Tabu length:  [ 13.   7.   7.  15.  13.  18.  21.  12.]
+Best Solution:  1.47842245763
+Initialization Time:  1.74355006218
+Total Processing time:  16.3398971558
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.71780193  1.54013972  1.67574544  1.54013972  1.54013972  1.68444085
+  1.65000986  1.54013972]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.58874971  1.40517387  1.38549081  1.46405356  1.38549081  1.38549081
+  1.41737098  1.38549081]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 14.   5.   5.   5.   4.   6.  43.   5.]
+Tabu length:  [ 23.  19.  25.  21.  20.   8.  15.  18.]
+Best Solution:  1.38549080947
+Initialization Time:  2.15917110443
+Total Processing time:  21.8936080933
+
+Solutions standardized, assigning enclaves
+[ 1.72281116  1.54485505  1.54485505  1.54485505  1.54569064  1.61354018
+  1.6716252   1.54485505]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.37645845  1.3308578   1.33575168  1.32982398  1.33575168  1.35765137
+  1.36219307  1.35744044]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 31.  11.  24.   3.   4.   4.   5.   5.]
+Tabu length:  [ 19.  17.  12.  19.  25.  20.   7.  23.]
+Best Solution:  1.32982398033
+Initialization Time:  0.852591991425
+Total Processing time:  14.6602530479
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.4137815   1.4137815   1.66012937  1.4137815   1.82349451  1.64677922
+  1.65138672  1.4137815 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.21962293  1.21404478  1.27970856  1.21404478  1.20982322  1.21096314
+  1.21962293  1.22320888]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 20.   4.   8.  13.  16.   7.   5.  14.]
+Tabu length:  [ 22.  26.  25.  15.  26.  16.  18.  13.]
+Best Solution:  1.20982321829
+Initialization Time:  1.57201313972
+Total Processing time:  15.3645069599
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.75351527  1.47766803  1.58349151  1.71070551  1.47766803  1.59378692
+  1.47766803  1.47766803]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.33861195  1.3706372   1.33861195  1.38679871  1.39800755  1.33861195
+  1.33861195  1.39758849]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 12.  25.   7.   7.   7.   5.   5.  19.]
+Tabu length:  [  9.  16.   6.  19.   7.  23.  24.  18.]
+Best Solution:  1.33861195
+Initialization Time:  1.95663785934
+Total Processing time:  19.9099578857
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.63481786  1.7128329   1.5735399   1.51553171  1.51553171  1.51553171
+  1.51553171  1.73733407]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30747043  1.30747043  1.30747043  1.30747043  1.30120901  1.31297172
+  1.33922451  1.31589527]
+Update Flags:  [ 0.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 24.  12.  16.   3.   6.   5.   5.  16.]
+Tabu length:  [ 18.  17.   9.  16.  14.   7.   7.   9.]
+Best Solution:  1.30120900656
+Initialization Time:  2.49705600739
+Total Processing time:  13.6037662029
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.81224423  1.84448053  1.70405257  1.70405257  1.77135252  1.70405257
+  1.70405257  1.79115941]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30834382  1.31819945  1.31819945  1.30834382  1.31819945  1.30834382
+  1.30834382  1.36628988]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 12.  21.   5.   9.   8.  18.   8.   6.]
+Tabu length:  [ 18.  26.  12.  20.   6.  12.  15.  22.]
+Best Solution:  1.30834382418
+Initialization Time:  2.23546910286
+Total Processing time:  20.8711140156
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.48027313  1.48027313  1.48661641  1.48027313  1.68210533  1.48027313
+  1.65495249  1.64284308]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.17512399  1.17253463  1.13614508  1.13614508  1.13614508  1.15447431
+  1.14096103  1.13614508]
+Update Flags:  [ 0.  0.  0.  1.  0.  1.  1.  0.]
+Iteration Counter:  [  9.   4.   4.   5.  11.   7.   9.  38.]
+Tabu length:  [ 13.   8.  12.   9.  17.  19.  26.  22.]
+Best Solution:  1.13614508162
+Initialization Time:  1.50736618042
+Total Processing time:  19.5872449875
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.53086584  1.73881395  1.61698209  1.33476668  1.33476668  1.33476668
+  1.67790347  1.33476668]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.15137975  1.15051229  1.15453221  1.15051229  1.1515664   1.15051229
+  1.15051229  1.15137975]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.  10.  12.  11.  12.   8.   7.  19.]
+Tabu length:  [ 26.  13.  18.   7.  13.  16.  16.  10.]
+Best Solution:  1.15051228988
+Initialization Time:  4.08968997002
+Total Processing time:  37.4734899998
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.45802937  1.54631498  1.45802937  1.77322192  1.63710037  1.45802937
+  1.68977831  1.45802937]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.20536255  1.2332367   1.20536255  1.21061779  1.21061779  1.20536255
+  1.20758027  1.20536255]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  8.   9.  10.  19.  12.  17.   6.   6.]
+Tabu length:  [ 12.  20.  16.  23.  17.  26.  16.  17.]
+Best Solution:  1.20536255496
+Initialization Time:  1.22460508347
+Total Processing time:  25.7146160603
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.78834749  1.91007891  1.62563415  1.62563415  1.62563415  1.62563415
+  1.86898412  1.66778693]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.25317937  1.25317937  1.25317937  1.26700733  1.25317937  1.26700733
+  1.27042943  1.25317937]
+Update Flags:  [ 0.  0.  0.  0.  1.  0.  0.  0.]
+Iteration Counter:  [ 11.   8.   7.   5.   6.  11.  11.  28.]
+Tabu length:  [  6.  25.  19.  21.  17.  22.  13.  22.]
+Best Solution:  1.25317937428
+Initialization Time:  1.98623585701
+Total Processing time:  23.7433879375
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.44415221  1.46626496  1.44415221  1.44415221  1.8083594   1.47829263
+  1.80018635  1.44415221]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.20914442  1.24128621  1.22038279  1.23835268  1.24128621  1.21784288
+  1.21784288  1.21784288]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  1.  0.]
+Iteration Counter:  [  6.   6.  11.  22.  23.   8.   6.   5.]
+Tabu length:  [ 20.  21.  20.  14.  24.  19.  26.  22.]
+Best Solution:  1.20914441612
+Initialization Time:  1.85709190369
+Total Processing time:  22.5114018917
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.81254019  1.70210733  1.82660273  1.70210733  1.8094522   1.70210733
+  1.70210733  1.75980581]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.44423949  1.50228352  1.48024203  1.44423949  1.44423949  1.45924582
+  1.44423949  1.45562057]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 27.   7.   9.   7.   9.   7.   9.  12.]
+Tabu length:  [ 11.   9.   9.   9.  15.  16.  17.  22.]
+Best Solution:  1.44423949048
+Initialization Time:  2.6545817852
+Total Processing time:  30.1145458221
+
+Solutions standardized, assigning enclaves
+[ 1.58073199  1.46804422  1.75882141  1.76233936  1.80459431  1.46804422
+  1.46804422  1.46804422]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.16182985  1.14044789  1.14044789  1.14814273  1.14044789  1.14561474
+  1.14044789  1.1577342 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 13.  13.   8.  11.  17.   8.  10.   7.]
+Tabu length:  [ 24.  20.  20.  19.  13.   8.  26.  23.]
+Best Solution:  1.14044788899
+Initialization Time:  0.849533081055
+Total Processing time:  30.9741091728
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.61389095  1.7256421   1.62313331  1.61389095  1.62607831  1.61389095
+  1.64153709  1.61389095]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.39750124  1.39750124  1.43352922  1.43217773  1.39750124  1.42632701
+  1.39750124  1.43217773]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 11.  12.  16.  10.  14.   9.   7.   8.]
+Tabu length:  [ 15.   7.  21.   6.  18.  21.   7.  11.]
+Best Solution:  1.39750123926
+Initialization Time:  1.1794219017
+Total Processing time:  36.8529369831
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.81046914  1.70406426  1.81275231  1.58469113  1.58469113  1.58469113
+  1.82240266  1.58469113]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.23096151  1.18879407  1.18879407  1.24925498  1.246376    1.18879407
+  1.23565078  1.18879407]
+Update Flags:  [ 1.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.   5.  31.   4.   6.  23.   3.  10.]
+Tabu length:  [ 23.  26.  25.  25.  23.  22.  10.   6.]
+Best Solution:  1.18879406724
+Initialization Time:  2.01983308792
+Total Processing time:  16.8643651009
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.55243472  1.55243472  1.70802181  1.55243472  1.55243472  1.6838545
+  1.77362854  1.7832092 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.30164651  1.30164651  1.30550887  1.30164651  1.29969729  1.31355719
+  1.3157202   1.30164651]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [ 24.   5.  10.   5.   9.  18.   7.   9.]
+Tabu length:  [ 17.  14.  10.  14.  13.  10.   7.  15.]
+Best Solution:  1.29969729426
+Initialization Time:  2.55527806282
+Total Processing time:  25.3074791431
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.65169081  1.65169081  1.82543455  1.65724008  1.65169081  1.65169081
+  1.69958167  1.78416812]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.35912024  1.30801974  1.34137524  1.30801974  1.34137524  1.3468977
+  1.30801974  1.30801974]
+Update Flags:  [ 1.  0.  0.  1.  0.  0.  0.  0.]
+Iteration Counter:  [ 23.   5.   6.  22.   9.   4.  11.   7.]
+Tabu length:  [ 19.  22.  19.  15.  10.  12.  13.   7.]
+Best Solution:  1.30801974072
+Initialization Time:  1.80407094955
+Total Processing time:  21.416162014
+
+IFS with vaired p generated.  Standardizing to p=32.
+[ 1.56336355  1.56336355  1.56336355  1.56336355  1.64674812  1.69431854
+  1.73222277  1.5922554 ]
+Initiating Phase II: Tabu Search
+
+Regions:  32
+New Solutions:  [ 1.2667726   1.2667726   1.27722723  1.28827882  1.28932296  1.28304241
+  1.27722723  1.2667726 ]
+Update Flags:  [ 0.  0.  0.  0.  0.  0.  0.  0.]
+Iteration Counter:  [  5.  21.  18.   8.   5.   6.  20.   4.]
+Tabu length:  [ 15.  17.  19.   9.  19.  13.   6.  23.]
+Best Solution:  1.26677260255
+Initialization Time:  1.94296312332
+Total Processing time:  20.2578890324
+
+Solutions standardized, assigning enclaves
+[ 1.62011049  1.66961099  1.68979064  1.62011049  1.62011049  1.65942449
+  1.62011049  1.6563563 ]
+Initiating Phase II: Tabu Search
+
+Regions:  31
+New Solutions:  [ 1.50394202  1.53912211  1.50394202  1.50394202  1.52423012  1.51825067
+  1.55840565  1.50394202]
+Update Flags:  [ 0.  1.  0.  0.  0.  0.  1.  1.]
+Iteration Counter:  [  6.   5.  18.   4.   7.  21.   6.  20.]
+Tabu length:  [ 12.  18.  12.   6.  18.  14.  18.  26.]
+Best Solution:  1.50394202474
+Initialization Time:  0.846961975098
+Total Processing time:  17.3851180077
+
