@@ -220,10 +220,12 @@ def set_half_to_best(cores):
     current_best_value = np.min(sharedSoln[0])
     num_top_half = (cores // 2)
     num_top_half -= len(np.where(sharedSoln[0] == current_best_value)[0])
+    replace_list = []
     for soln in range(num_top_half):
         replace = np.argmax(sharedSoln[0])
         sharedSoln[:,replace] = sharedSoln[:,current_best]
-
+        replace_list.append(replace)
+    return replace_list
 def tabulength(numP):
     '''Talliard(1990)'''
     smin = (numP-1) * 0.9
@@ -327,7 +329,7 @@ for job in jobs:
 del jobs[:], proc, job
 
 #Phase Id - Set 50% soln to best current soln
-set_half_to_best(cores)
+replace_list = set_half_to_best(cores)
 
 def compute_local_variance(column_num, z):
     
@@ -363,7 +365,7 @@ print sharedSoln[0]
 #print "Soln computed by addative varaince: ", sharedVar[0]
 
 
-def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, lockflag, maxfailures=50,maxiterations=10):
+def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, lockflag,lockVar, maxfailures=50,maxiterations=10):
         
     ##Pseudo constants
     pid = mp.current_process()._identity[0]
@@ -382,23 +384,15 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
     
 
     def _diversify_soln(core_soln_column, neighbordict,z, floor_variable,lockSoln):
-        '''
-        The goal of this function is to diversify a soln that is not improving.
-        What about the possability of diversifying a good answer away from 'the soln?'
-        I do no think that that should be an issue - we make a randomized greedy swap.  Is one enough?
-        
-        Rationale: This is a randomized Greedy swap (GRASP), where we store the best n permutations and then randomly select the one we will use.  Originally in Li et. al (in press).  We need to test different values of n to see what the impact is.
-        '''
-        #print "Diversifying: ", sharedSoln[0]
-
         #Initialize a local swap space to store n best diversified soln - these do not need to be better 
-        div_soln_space = np.ndarray(sharedSoln.shape)
+        div_soln_space = np.empty(sharedSoln.shape)
         div_soln_space[:] = float("inf")
-        workingcopy = np.copy(sharedSoln[0:,core_soln_column])            
+        div_variance = np.array([sharedVar[:,core_soln_column]] * sharedVar.shape[1]).T
+        workingSoln = np.copy(sharedSoln[0:,core_soln_column])            
 
         #Iterate through the regions and check all moves, store the 4 best.
-        for region in np.unique(workingcopy[1:]):
-            members = np.where(workingcopy == region)[0]
+        for region in np.unique(workingSoln[1:]):
+            members = np.where(workingSoln == region)[0]
             neighbors = []
             for member in members:
                 candidates = neighbordict[member-1]#neighbordict is 0 based, member is 1 based
@@ -409,40 +403,45 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
             
             #Iterate through the neighbors
             for neighbor in neighbors:
-                neighborcopy = np.copy(workingcopy[:]) #Pull a copy of the local working version
-                old_membership = neighborcopy[neighbor]#Track where we started to check_floor
+                neighborSoln = np.copy(workingSoln[1:]) #Pull a copy of the local working version
+                old_membership = neighborSoln[neighbor]#Track where we started to check_floor
                 
-                neighborcopy[neighbor] = region #Move the neighbor into the new region in the copy
+                neighborSoln[neighbor] = region #Move the neighbor into the new region in the copy
                 
-                #Here we start to check the swap and see if it is better
-                swap_var = objective_function_vec(neighborcopy[1:],z)#Variance of the new swap
-                if not swap_var < div_soln_space[0].any():
-                    block = np.where(workingcopy[1:] == neighbor)[0]#A list of the members in a region.
-                    block=block.tolist() #For current contiguity check
-                    if check_contiguity(neighbordict, block, neighbor):#Check contiguity
-                        if check_floor(np.where(neighborcopy[1:,]==region)[0], floor_variable, w) and check_floor(np.where(neighborcopy[1:,]==old_membership)[0],floor_variable,w):
-                            
-                            neighborcopy[0] = swap_var
-                            if not np.isinf(div_soln_space[0].any()):
-                                div_soln_space[:,np.argmax(div_soln_space[0])] = neighborcopy[:]
-                            else:
-                                div_soln_space[:,np.argmin(div_soln_space[0])] = neighborcopy[:]
-                        else:
-                            del neighborcopy
-                            #print "Swap failed due to floor_check."
+                #Check the floor
+                floor_check = True 
+                if not np.sum(floor_variable[neighborSoln == old_membership]) and np.sum(floor_variable[neighborSoln == region]) >= floor:
+                    continue                
+
+                #Check contiguity of the swap
+                block = np.where(workingSoln[1:] == neighbor)[0].tolist()
+                if not check_contiguity(neighbordict, block, neighbor):
+                    continue                
+                
+                #Compute the local variance
+                varcopy = np.copy(sharedVar[:,core_soln_column])
+                varcopy[old_membership] = np.var(z[neighborSoln == old_membership])
+                varcopy[region] = np.var(z[neighborSoln == region])
+                varcopy[0] = np.sum(varcopy[1:])                
+                
+                if varcopy[0] < div_soln_space[0].any():
+                    if not np.isinf(div_soln_space[0].any()):
+                        column = np.argmax(np.argmax(div_soln_space[0]))
+                        div_soln_space[:,column] = neighborSoln[:]
+                        div_variance[:,column] = varcopy
                     else:
-                        del neighborcopy
-                        #print "Swap failed due to contiguity."
-        #It is possible that the perturbation will not generate enough soln to fill the space, 
-        # so we need to ignore those columns with variance = infinity.
-        
+                        column = np.argmin(div_soln_space[0])
+                        div_soln_space[:,column] = neighborSoln
+                        div_variance[:,column] = varcopy
+                    
         #Write one of the neighbor perturbations to the shared memory space to work on.
         valid = np.where(div_soln_space[0] != np.inf)[0]
         try:
             selection = randint(0,len(valid)-1)
             with lockSoln:
                 sharedSoln[:,core_soln_column] = div_soln_space[:,selection]
-                #print "Diversified to:", sharedSoln[0]
+            with lockVar:
+                sharedVar[:,core_soln_column] = div_variance[:,selection]
         except:
             pass
             #print div_soln_space[0]
@@ -506,11 +505,11 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
                     floor_check = True 
                     if not np.sum(floor_variable[neighborSoln == old_membership]) and np.sum(floor_variable[neighborSoln == region]) >= floor:
                         continue
-                    
+
                     #Compute the local variance
                     varcopy = np.copy(sharedVar[:,core_soln_column])
                     varcopy[old_membership] = np.var(z[neighborSoln== old_membership])
-                    varcopy[old_membership] = np.var(z[neighborSoln == region])
+                    varcopy[region] = np.var(z[neighborSoln == region])
                     varcopy[0] = np.sum(varcopy[1:])
                     
                     #Check the locally compute varaince against current working best.
@@ -537,16 +536,20 @@ def tabu_search(core, z, neighbordict,numP,w,floor, floor_variable,lockSoln, loc
         with lockflag:
             sharedupdate[0][core_soln_column] = 0 #Set the update flag to false
             #print "Locking update flag to set to false"
-        
+            
         with lockSoln:#The lock is released at the end of the with statement
             sharedSoln[:,core_soln_column]#Lock the column of the shared soln we are using.
             if workingSoln[0] < sharedSoln[:,core_soln_column][0]:
-                sharedSoln[:,core_soln_column]
                 sharedSoln[:,core_soln_column] = workingSoln
+                with lockVar:
+                    sharedVar[:,core_soln_column] = varcopy
                 #print "Better soln loaded into sharedSoln: %f." %(workingSoln[0])
                 sharedupdate[0][core_soln_column] = 1 #Set the update flag to true
                 if not workingSoln[0] < sharedSoln[0].any():
-                    set_half_to_best(len(sharedSoln[0]))
+                    results = set_half_to_best(len(sharedSoln[0]))
+                    '''Set half the variance array to half as well.'''
+                    for result in results:
+                        sharedVar[:,result] = varcopy
                     #print "Setting half the soln to new global best. ", sharedSoln[0]
         #Increment the core iteration counter    
         sharedupdate[1][core] += 1
@@ -559,7 +562,7 @@ print "Initiating Phase II: Tabu Search"
 time1 = time.time()
 #We  need an iterator here to count max iterations or total time to work or something.  We track failures internal to each process.
 for core in range(cores):
-    proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor, floor_variable, lockSoln, lockflag))
+    proc = mp.Process(target=tabu_search, args=(core, z[:,0], neighbordict, numP,w,floor, floor_variable, lockSoln, lockflag,lockVar))
     jobs.append(proc)
 for job in jobs:
     job.start()
