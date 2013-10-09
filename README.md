@@ -8,3 +8,4 @@ maxp_parallel
 	
 3. Some error is occurring that is causing one or more of the processes to return an error.  The child process does not return a meaningful stacktrace.  In fact, the only reason that I am asserting an error is occurring is because of the extra printed material at the start of processing.  To duplicate, start a new tab, run the script with at least 1500 lines of scroll back and observe the dict at the top.
 
+Dummy edit to test.
